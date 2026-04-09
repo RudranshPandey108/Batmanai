@@ -1859,20 +1859,48 @@ Internet ya API key nahi hai, toh main basic help hi de sakta hoon.`;
       document.getElementById("providerHint").textContent = AI_PROVIDERS[APP.provider].hint;
     }
 
-    function saveApiKey(){
-      APP.provider = providerSelect.value;
-      APP.providerKeys[APP.provider] = document.getElementById("apiKeyInput").value.trim();
-      saveState();
-      renderProviderSettings();
-      toast("API key saved for " + AI_PROVIDERS[APP.provider].name);
-    }
+    
+function saveApiKey(){
+  const selectedProvider = document.getElementById("providerSelect").value;
+  const keyValue = document.getElementById("apiKeyInput").value.trim();
 
-    function removeApiKey(){
-      APP.providerKeys[APP.provider] = "";
-      saveState();
-      renderProviderSettings();
-      toast("API key removed");
-    }
+  if(!selectedProvider){
+    alert("Provider select karo.");
+    return;
+  }
+
+  if(!keyValue){
+    alert("API key daalo pehle.");
+    return;
+  }
+
+  APP.provider = selectedProvider;
+  APP.providerKeys[selectedProvider] = keyValue;
+
+  const ok = saveState();
+  if(!ok) return;
+
+
+function renderProviderSettings(){
+  providerSelect.value = APP.provider;
+  document.getElementById("apiKeyInput").value = APP.providerKeys[APP.provider] || "";
+  document.getElementById("providerHint").textContent = AI_PROVIDERS[APP.provider].hint;
+
+  console.log("Current provider:", APP.provider);
+  console.log("Loaded key:", APP.providerKeys[APP.provider]);
+}
+
+
+
+    
+function removeApiKey(){
+  const selectedProvider = document.getElementById("providerSelect").value;
+  APP.providerKeys[selectedProvider] = "";
+  saveState();
+  renderProviderSettings();
+  toast("API key removed");
+}
+
 
     /* ONLINE AI */
     const SYSTEM_PROMPT = `You are Batman AI, a friendly study assistant.
