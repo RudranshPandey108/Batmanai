@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Batman AI Ultra Fixed</title>
+  <title>Batman AI Final Stable</title>
 
   <style>
     :root{
       --bg:#07142d;
-      --bg2:#0c1b3f;
+      --bg2:#0d1d42;
       --panel:#081227;
-      --panel2:#101d3d;
+      --panel2:#12224a;
       --card:#12224a;
       --text:#eef3ff;
-      --muted:#9db0d9;
+      --muted:#9eb1da;
       --border:rgba(255,255,255,.12);
       --gold:#ffd54a;
       --gold2:#ffe8a0;
-      --blue:#3b73f2;
-      --blue2:#2453c6;
-      --green:#1f8a45;
-      --red:#8c2332;
+      --blue:#3a73f0;
+      --blue2:#2453c8;
+      --green:#1f8d48;
+      --red:#8e2332;
+      --purple:#7c4dff;
       --shadow:0 18px 60px rgba(0,0,0,.42);
     }
 
@@ -32,7 +33,7 @@
       font-family:Arial,Helvetica,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top right, rgba(59,115,242,.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(58,115,240,.14), transparent 28%),
         radial-gradient(circle at bottom left, rgba(255,213,74,.06), transparent 22%),
         linear-gradient(180deg,var(--bg2),var(--bg));
       overflow-x:hidden;
@@ -41,8 +42,65 @@
     button,input,select,textarea{font:inherit}
     .hidden{display:none!important}
 
+    body.theme-midnight{
+      --bg:#07142d;
+      --bg2:#0d1d42;
+      --panel:#081227;
+      --panel2:#12224a;
+      --card:#12224a;
+      --text:#eef3ff;
+      --muted:#9eb1da;
+      --border:rgba(255,255,255,.12);
+      --gold:#ffd54a;
+      --gold2:#ffe8a0;
+      --blue:#3a73f0;
+      --blue2:#2453c8;
+    }
+    body.theme-emerald{
+      --bg:#071d18;
+      --bg2:#0d2d25;
+      --panel:#0a241d;
+      --panel2:#14382d;
+      --card:#14382d;
+      --text:#ebfff8;
+      --muted:#a2ccbf;
+      --border:rgba(255,255,255,.11);
+      --gold:#f4d25d;
+      --gold2:#fff0b3;
+      --blue:#25a889;
+      --blue2:#157861;
+    }
+    body.theme-crimson{
+      --bg:#190d12;
+      --bg2:#34141f;
+      --panel:#26111a;
+      --panel2:#3a1724;
+      --card:#3a1724;
+      --text:#fff2f6;
+      --muted:#d5aab8;
+      --border:rgba(255,255,255,.10);
+      --gold:#ffc95c;
+      --gold2:#ffe7ad;
+      --blue:#e04c76;
+      --blue2:#b32f56;
+    }
+    body.theme-royal{
+      --bg:#120a28;
+      --bg2:#24164b;
+      --panel:#1a1237;
+      --panel2:#2a1c57;
+      --card:#2a1c57;
+      --text:#f7f2ff;
+      --muted:#c7b7ea;
+      --border:rgba(255,255,255,.11);
+      --gold:#ffd660;
+      --gold2:#fff0b8;
+      --blue:#8d5bff;
+      --blue2:#6f3df0;
+    }
+
     .landing{
-      max-width:1100px;
+      max-width:1080px;
       margin:0 auto;
       padding:24px;
     }
@@ -57,7 +115,7 @@
     }
     .hero h1{
       margin:0 0 10px;
-      font-size:clamp(28px,4vw,52px);
+      font-size:clamp(28px,4vw,50px);
     }
     .hero p{
       margin:0;
@@ -84,6 +142,8 @@
     .hero-card p{
       margin:0;
       font-size:14px;
+      color:var(--muted);
+      line-height:1.5;
     }
 
     /* FAB */
@@ -106,8 +166,8 @@
       border-radius:999px;
       font-size:14px;
       font-weight:700;
-      box-shadow:var(--shadow);
       white-space:nowrap;
+      box-shadow:var(--shadow);
     }
     #fabRingWrap{
       width:76px;
@@ -130,18 +190,19 @@
     .ring3{animation-delay:1.4s}
     @keyframes pulse{
       0%{transform:scale(.78);opacity:0}
-      15%{opacity:.8}
+      16%{opacity:.8}
       100%{transform:scale(1.35);opacity:0}
     }
+
     #fabBtn{
       width:64px;
       height:64px;
       border:none;
       border-radius:50%;
       overflow:hidden;
-      cursor:pointer;
       background:#0c1328;
       box-shadow:0 0 0 2px rgba(255,213,74,.16),0 0 18px rgba(255,213,74,.24);
+      cursor:pointer;
       padding:0;
     }
     #fabBtn img{
@@ -161,21 +222,19 @@
       padding:12px 10px;
       border-radius:0 14px 14px 0;
       font-weight:700;
-      cursor:pointer;
       box-shadow:var(--shadow);
+      cursor:pointer;
     }
-    #peekTab.right{
-      border-radius:14px 0 0 14px;
-    }
+    #peekTab.right{border-radius:14px 0 0 14px}
 
-    /* PANEL */
+    /* APP PANEL */
     #appPanel{
       position:fixed;
       right:14px;
       bottom:96px;
       width:min(98vw,1120px);
       height:min(92vh,860px);
-      background:linear-gradient(180deg,rgba(7,12,25,.98),rgba(8,16,35,.98));
+      background:linear-gradient(180deg,rgba(8,12,25,.98),rgba(8,16,35,.98));
       border:1px solid var(--border);
       border-radius:26px;
       box-shadow:var(--shadow);
@@ -265,7 +324,6 @@
       gap:8px;
       flex-wrap:wrap;
     }
-
     .tiny-btn,.chip{
       border:1px solid var(--border);
       background:var(--card);
@@ -681,9 +739,7 @@
     }
 
     /* mobile nav */
-    #mobileNav{
-      display:none;
-    }
+    #mobileNav{display:none}
 
     @media (max-width: 980px){
       #appPanel.open{grid-template-columns:1fr}
@@ -698,7 +754,6 @@
         border-top:1px solid var(--border);
         background:rgba(10,15,30,.96);
       }
-
       .mnav-btn{
         border:1px solid var(--border);
         background:var(--card);
@@ -735,20 +790,20 @@
     }
   </style>
 </head>
-<body>
+<body class="theme-midnight">
 
   <div class="landing">
     <div class="hero">
-      <h1>Batman AI Ultra</h1>
+      <h1>Batman AI Final Stable</h1>
       <p>
-        Ye fixed version hai — purane wale feel ke saath. Chat, Pomodoro, Tracker, Notes, Formula, CBT aur offline replies properly kaam karenge.
+        Ye fixed version hai — purane clean style ke saath. Chat, Pomodoro, Tracker, Notes, Formula aur CBT sab stable chalenge.
       </p>
 
       <div class="hero-grid">
-        <div class="hero-card"><h3>Offline + Online</h3><p>API key ho toh online AI, warna offline help + simple maths.</p></div>
-        <div class="hero-card"><h3>Big Mobile UI</h3><p>Phone pe bhi proper full app jaisa experience.</p></div>
-        <div class="hero-card"><h3>Study Tools</h3><p>Tracker, streak, pomodoro, formulas, notes.</p></div>
-        <div class="hero-card"><h3>Mock CBT</h3><p>Question palette, timer, result, mark for review.</p></div>
+        <div class="hero-card"><h3>Offline + Online</h3><p>API key ho toh online AI, warna offline help + simple maths solver.</p></div>
+        <div class="hero-card"><h3>Big Mobile UI</h3><p>Phone pe proper full app jaisa experience.</p></div>
+        <div class="hero-card"><h3>Study Tools</h3><p>Tracker, streak, pomodoro, formulas aur notes.</p></div>
+        <div class="hero-card"><h3>Mock CBT</h3><p>Timer, palette, mark review aur result system.</p></div>
       </div>
     </div>
   </div>
@@ -761,17 +816,16 @@
       <div class="ring2"></div>
       <div class="ring3"></div>
       <button id="fabBtn" title="Open app">
-        <img
-          alt="Batman AI"
-          src='data:image/svg+xml;utf8,
-          <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
-            <rect width="256" height="256" rx="40" fill="%230b1020"/>
-            <circle cx="128" cy="128" r="84" fill="%23141d3f" stroke="%23ffd34d" stroke-width="8"/>
-            <path d="M54 146c22-22 42-32 56-30 7-27 19-43 18-43l19 17 20-17s11 15 18 43c13-2 34 8 57 30-19-3-33-1-43 7 0 0 2 31-19 31h-104c-21 0-19-31-19-31-10-8-24-10-43-7z" fill="%23ffd34d"/>
-            <circle cx="102" cy="128" r="7" fill="%230b1020"/>
-            <circle cx="154" cy="128" r="7" fill="%230b1020"/>
-            <path d="M104 154c8 8 40 8 48 0" stroke="%230b1020" stroke-width="6" stroke-linecap="round" fill="none"/>
-          </svg>' />
+        <img alt="Batman AI"
+             src='data:image/svg+xml;utf8,
+             <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+               <rect width="256" height="256" rx="40" fill="%230b1020"/>
+               <circle cx="128" cy="128" r="84" fill="%23141d3f" stroke="%23ffd34d" stroke-width="8"/>
+               <path d="M54 146c22-22 42-32 56-30 7-27 19-43 18-43l19 17 20-17s11 15 18 43c13-2 34 8 57 30-19-3-33-1-43 7 0 0 2 31-19 31h-104c-21 0-19-31-19-31-10-8-24-10-43-7z" fill="%23ffd34d"/>
+               <circle cx="102" cy="128" r="7" fill="%230b1020"/>
+               <circle cx="154" cy="128" r="7" fill="%230b1020"/>
+               <path d="M104 154c8 8 40 8 48 0" stroke="%230b1020" stroke-width="6" stroke-linecap="round" fill="none"/>
+             </svg>' />
       </button>
     </div>
   </div>
@@ -782,17 +836,16 @@
   <div id="appPanel">
     <aside class="sidebar">
       <div class="brand">
-        <img
-          alt="Batman AI"
-          src='data:image/svg+xml;utf8,
-          <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 256 256">
-            <rect width="256" height="256" rx="40" fill="%230b1020"/>
-            <circle cx="128" cy="128" r="84" fill="%23141d3f" stroke="%23ffd34d" stroke-width="8"/>
-            <path d="M54 146c22-22 42-32 56-30 7-27 19-43 18-43l19 17 20-17s11 15 18 43c13-2 34 8 57 30-19-3-33-1-43 7 0 0 2 31-19 31h-104c-21 0-19-31-19-31-10-8-24-10-43-7z" fill="%23ffd34d"/>
-            <circle cx="102" cy="128" r="7" fill="%230b1020"/>
-            <circle cx="154" cy="128" r="7" fill="%230b1020"/>
-            <path d="M104 154c8 8 40 8 48 0" stroke="%230b1020" stroke-width="6" stroke-linecap="round" fill="none"/>
-          </svg>' />
+        <img alt="Batman AI"
+             src='data:image/svg+xml;utf8,
+             <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 256 256">
+               <rect width="256" height="256" rx="40" fill="%230b1020"/>
+               <circle cx="128" cy="128" r="84" fill="%23141d3f" stroke="%23ffd34d" stroke-width="8"/>
+               <path d="M54 146c22-22 42-32 56-30 7-27 19-43 18-43l19 17 20-17s11 15 18 43c13-2 34 8 57 30-19-3-33-1-43 7 0 0 2 31-19 31h-104c-21 0-19-31-19-31-10-8-24-10-43-7z" fill="%23ffd34d"/>
+               <circle cx="102" cy="128" r="7" fill="%230b1020"/>
+               <circle cx="154" cy="128" r="7" fill="%230b1020"/>
+               <path d="M104 154c8 8 40 8 48 0" stroke="%230b1020" stroke-width="6" stroke-linecap="round" fill="none"/>
+             </svg>' />
         <div>
           <h2>Batman AI</h2>
           <div class="status" id="liveStatus">● Ready</div>
@@ -1121,7 +1174,7 @@
   </div>
 
   <script>
-    const STORAGE_KEY = "batman_ultra_fixed_v1";
+    const STORAGE_KEY = "batman_final_stable_v2";
 
     const APP = {
       theme: "midnight",
@@ -1205,6 +1258,7 @@
 
     const FALLBACK_ORDER = ["gemini","openrouter","groq","cohere","openai"];
 
+    /* THEME */
     function setTheme(name){
       document.body.classList.remove("theme-midnight","theme-emerald","theme-crimson","theme-royal");
       document.body.classList.add("theme-" + name);
@@ -1231,7 +1285,7 @@
     document.getElementById("voiceLang").value = APP.voiceLang;
     document.getElementById("speakToggle").onclick = toggleTTS;
 
-    /* Navigation */
+    /* NAVIGATION */
     const navButtons = [...document.querySelectorAll(".nav-btn")];
 
     function goPage(page){
@@ -1263,7 +1317,7 @@
       btn.addEventListener("click", () => goPage(btn.dataset.mpage));
     });
 
-    /* Panel */
+    /* PANEL */
     const panel = document.getElementById("appPanel");
     document.getElementById("closeBtn").onclick = () => panel.classList.remove("open");
     document.getElementById("expandBtn").onclick = () => panel.classList.toggle("expanded");
@@ -1273,7 +1327,7 @@
       goPage("dashboard");
     }
 
-    /* FAB drag */
+    /* FAB DRAG */
     const fabWrap = document.getElementById("fabWrap");
     const ringWrap = document.getElementById("fabRingWrap");
     const peekTab = document.getElementById("peekTab");
@@ -1380,7 +1434,7 @@
     window.addEventListener("resize", () => setFabPos(fabL, fabT, false));
     setFabPos(fabL, fabT, false);
 
-    /* Mode toggle */
+    /* MODE TOGGLE */
     function updateModeButtons(){
       document.querySelectorAll("#modeToggle button").forEach(b => {
         b.classList.toggle("active", b.dataset.mode === APP.mode);
@@ -1398,7 +1452,7 @@
     });
     updateModeButtons();
 
-    /* Offline KB */
+    /* OFFLINE KB */
     const OFFLINE_KB = [
       {
         patterns:["install","install app","add to home screen","pwa","homescreen"],
@@ -1464,7 +1518,7 @@ Poochho:
     function offlineMathSolve(text){
       const t = normalize(text);
 
-      let m = t.match(/([+-]?\d*)x\s*([+-]\s*\d+)?\s*=\s*([+-]?\d+)/);
+      const m = t.match(/([+-]?\d*)x\s*([+-]\s*\d+)?\s*=\s*([+-]?\d+)/);
       if(m){
         let a = m[1].replace(/\s+/g,"");
         if(a === "" || a === "+") a = 1;
@@ -1496,7 +1550,7 @@ ${t} = ${val}`;
     }
 
     function getOfflineReply(text){
-      const t = normalize(text);
+      const t = normalize(text || "");
       const math = offlineMathSolve(t);
       if(math) return math;
 
@@ -1520,7 +1574,7 @@ Try:
 Internet ya API key nahi hai, toh main basic help hi de sakta hoon.`;
     }
 
-    /* Chat */
+    /* CHAT */
     const chatMsgs = document.getElementById("chatMsgs");
     let pendingImageData = null;
     let lastBotReply = "";
@@ -1690,7 +1744,7 @@ Internet ya API key nahi hai, toh main basic help hi de sakta hoon.`;
       }, 2200);
     }
 
-    /* Speech */
+    /* SPEECH */
     function speakText(text){
       if(!("speechSynthesis" in window)) return;
       const u = new SpeechSynthesisUtterance(String(text).slice(0,500));
@@ -1719,7 +1773,7 @@ Internet ya API key nahi hai, toh main basic help hi de sakta hoon.`;
       rec.start();
     }
 
-    /* Image */
+    /* IMAGE */
     document.getElementById("uploadBtn").onclick = () => {
       const current = AI_PROVIDERS[APP.provider];
       if(current && !current.supportsImage){
@@ -1747,7 +1801,7 @@ Internet ya API key nahi hai, toh main basic help hi de sakta hoon.`;
       document.getElementById("imgPreviewWrap").classList.remove("show");
     }
 
-    /* Provider settings */
+    /* PROVIDER SETTINGS */
     const providerSelect = document.getElementById("providerSelect");
     Object.keys(AI_PROVIDERS).forEach(k => {
       const op = document.createElement("option");
@@ -1783,7 +1837,7 @@ Internet ya API key nahi hai, toh main basic help hi de sakta hoon.`;
       toast("API key removed");
     }
 
-    /* Online AI */
+    /* ONLINE AI */
     const SYSTEM_PROMPT = `You are Batman AI, a friendly study assistant.
 When in study mode, explain clearly and structured.
 When in chat mode, be natural and concise.
@@ -1874,13 +1928,14 @@ Use Hinglish naturally when helpful.`;
       const content = [];
       if(imgDataUrl) content.push({type:"image_url", image_url:{url:imgDataUrl}});
       if(text) content.push({type:"text", text});
+
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions",{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
           "Authorization":"Bearer " + key,
           "HTTP-Referer": location.origin || "http://localhost",
-          "X-Title":"Batman AI Ultra Fixed"
+          "X-Title":"Batman AI Final Stable"
         },
         body:JSON.stringify({
           model:"meta-llama/llama-3.3-70b-instruct:free",
@@ -1908,6 +1963,7 @@ Use Hinglish naturally when helpful.`;
         });
       }
       if(text) parts.push({text});
+
       const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(key)}`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
@@ -1915,7 +1971,10 @@ Use Hinglish naturally when helpful.`;
           contents:[
             {role:"user",parts:[{text:SYSTEM_PROMPT}]},
             {role:"model",parts:[{text:"Understood."}]},
-            ...APP.chatHistory.slice(-8).map(m => ({role:m.role === "user" ? "user" : "model", parts:[{text:m.text}]})),
+            ...APP.chatHistory.slice(-8).map(m => ({
+              role:m.role === "user" ? "user" : "model",
+              parts:[{text:m.text}]
+            })),
             {role:"user",parts}
           ],
           generationConfig:{temperature:0.8,maxOutputTokens:700}
@@ -1953,6 +2012,7 @@ Use Hinglish naturally when helpful.`;
       const content = [];
       if(imgDataUrl) content.push({type:"image_url", image_url:{url:imgDataUrl}});
       if(text) content.push({type:"text", text});
+
       const r = await fetch("https://api.openai.com/v1/chat/completions",{
         method:"POST",
         headers:{
@@ -1999,7 +2059,7 @@ Use Hinglish naturally when helpful.`;
 
     function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
 
-    /* Tracker */
+    /* TRACKER */
     function addTask(){
       const title = document.getElementById("taskTitle").value.trim();
       const subject = document.getElementById("taskSubject").value;
@@ -2025,7 +2085,7 @@ Use Hinglish naturally when helpful.`;
       if(APP.tasks.length) return toast("Tasks already added");
       APP.tasks = [
         {id:1,title:"Revise Integration",subject:"Maths",priority:"High",deadline:"Today",done:false},
-        {id:2,title:"Numericals of Current Electricity",subject:"Physics",priority:"High",deadline:"Today",done:false},
+        {id:2,title:"Current Electricity numericals",subject:"Physics",priority:"High",deadline:"Today",done:false},
         {id:3,title:"Organic named reactions",subject:"Chemistry",priority:"Medium",deadline:"Tomorrow",done:false},
         {id:4,title:"English essay practice",subject:"English",priority:"Low",deadline:"This week",done:false}
       ];
@@ -2088,7 +2148,7 @@ Use Hinglish naturally when helpful.`;
       }
     }
 
-    /* Dashboard */
+    /* DASHBOARD */
     function updateDashboard(){
       const total = APP.tasks.length;
       const done = APP.tasks.filter(t => t.done).length;
@@ -2107,7 +2167,7 @@ Use Hinglish naturally when helpful.`;
           : "All tasks done. Massive W.";
     }
 
-    /* Pomodoro */
+    /* POMODORO */
     let pomoInterval = null;
 
     function renderPomodoro(){
@@ -2170,6 +2230,7 @@ Use Hinglish naturally when helpful.`;
           saveState();
         }
       }, 1000);
+
       toast("Pomodoro started");
     }
 
@@ -2326,7 +2387,7 @@ Use Hinglish naturally when helpful.`;
       renderCBT();
     }
 
-    /* Formula */
+    /* FORMULA */
     const FORMULAS = [
       {title:"Quadratic Formula", body:"x = [-b ± √(b² - 4ac)] / 2a"},
       {title:"Differentiation", body:"d/dx (xⁿ) = n·xⁿ⁻¹"},
@@ -2351,7 +2412,7 @@ Use Hinglish naturally when helpful.`;
       `).join("");
     }
 
-    /* Notes */
+    /* NOTES */
     function saveNote(){
       const title = document.getElementById("noteTitle").value.trim();
       const body = document.getElementById("noteBody").value.trim();
@@ -2413,14 +2474,14 @@ Use Hinglish naturally when helpful.`;
       renderNotes();
     }
 
-    /* Online status */
+    /* ONLINE STATUS */
     function refreshOnlineBadge(){
       document.getElementById("offlineIndicator").textContent = navigator.onLine ? "🟢 Online" : "🟡 Offline";
     }
     window.addEventListener("online", refreshOnlineBadge);
     window.addEventListener("offline", refreshOnlineBadge);
 
-    /* Init */
+    /* INIT */
     function initAll(){
       renderProviderSettings();
       renderChatHistory();
@@ -2447,7 +2508,7 @@ Main kya kar sakta hoon:
 • CBT mock
 • formulas and notes
 
-App open karte hi tum yahin se start kar sakte ho.`);
+Yahin se start karo 😎`);
       }
     }
 
