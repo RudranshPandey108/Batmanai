@@ -1163,18 +1163,53 @@
       }
     };
 
-    function loadState(){
-      try{
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if(!raw) return;
-        const parsed = JSON.parse(raw);
-        Object.assign(APP, parsed);
-      }catch(e){}
-    }
-    function saveState(){
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(APP));
-    }
-    loadState();
+    
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return;
+    const parsed = JSON.parse(raw);
+
+    // deep-ish safe restore
+    APP.theme = parsed.theme || APP.theme;
+    APP.mode = parsed.mode || APP.mode;
+    APP.tts = typeof parsed.tts === "boolean" ? parsed.tts : APP.tts;
+    APP.voiceLang = parsed.voiceLang || APP.voiceLang;
+    APP.provider = parsed.provider || APP.provider;
+
+    APP.providerKeys = {
+      gemini: parsed.providerKeys?.gemini || "",
+      groq: parsed.providerKeys?.groq || "",
+      openrouter: parsed.providerKeys?.openrouter || "",
+      openai: parsed.providerKeys?.openai || "",
+      cohere: parsed.providerKeys?.cohere || ""
+    };
+
+    APP.chatHistory = Array.isArray(parsed.chatHistory) ? parsed.chatHistory : [];
+    APP.pinned = Array.isArray(parsed.pinned) ? parsed.pinned : [];
+    APP.notes = Array.isArray(parsed.notes) ? parsed.notes : [];
+    APP.tasks = Array.isArray(parsed.tasks) ? parsed.tasks : [];
+
+    APP.tracker = parsed.tracker || APP.tracker;
+    APP.pomodoro = parsed.pomodoro || APP.pomodoro;
+    APP.cbt = parsed.cbt || APP.cbt;
+  }catch(e){
+    console.log("loadState error", e);
+  }
+}
+
+function saveState(){
+  try{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(APP));
+    console.log("State saved:", APP);
+    return true;
+  }catch(e){
+    console.log("saveState error", e);
+    alert("Save failed. Browser localStorage ka issue hai.");
+    return false;
+  }
+}
+
 
     const AI_PROVIDERS = {
       gemini: {
@@ -1763,26 +1798,61 @@ Internet ya API key nahi hai, toh main basic help hi de sakta hoon.`;
       renderProviderSettings();
     };
 
-    function renderProviderSettings(){
-      providerSelect.value = APP.provider;
-      document.getElementById("apiKeyInput").value = APP.providerKeys[APP.provider] || "";
-      document.getElementById("providerHint").textContent = AI_PROVIDERS[APP.provider].hint;
-    }
+    
+function renderProviderSettings(){
+  providerSelect.value = APP.provider;
+  document.getElementById("apiKeyInput").value = APP.providerKeys[APP.provider] || "";
+  document.getElementById("providerHint").textContent = AI_PROVIDERS[APP.provider].hint;
 
-    function saveApiKey(){
-      APP.provider = providerSelect.value;
-      APP.providerKeys[APP.provider] = document.getElementById("apiKeyInput").value.trim();
-      saveState();
-      renderProviderSettings();
-      toast("API key saved for " + AI_PROVIDERS[APP.provider].name);
-    }
+  console.log("Current provider:", APP.provider);
+  console.log("Loaded key:", APP.providerKeys[APP.provider]);
+}
 
-    function removeApiKey(){
-      APP.providerKeys[APP.provider] = "";
-      saveState();
-      renderProviderSettings();
-      toast("API key removed");
-    }
+
+    
+function saveApiKey(){
+  const selectedProvider = document.getElementById("providerSelect").value;
+  const keyValue = document.getElementById("apiKeyInput").value.trim();
+
+  if(!selectedProvider){
+    alert("Provider select karo.");
+    return;
+  }
+
+  if(!keyValue){
+    alert("API key daalo pehle.");
+    return;
+  }
+
+  APP.provider = selectedProvider;
+  APP.providerKeys[selectedProvider] = keyValue;
+
+  const ok = saveState();
+  if(!ok) return;
+
+  renderProviderSettings();
+
+  // verify immediately
+  const check = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+  const savedKey = check?.providerKeys?.[selectedProvider] || "";
+
+  if(savedKey){
+    toast("API key saved for " + AI_PROVIDERS[selectedProvider].name);
+    alert("Key saved successfully for " + AI_PROVIDERS[selectedProvider].name);
+  } else {
+    alert("Key save nahi hui. Browser storage block ho rahi hai.");
+  }
+}
+
+    
+function removeApiKey(){
+  const selectedProvider = document.getElementById("providerSelect").value;
+  APP.providerKeys[selectedProvider] = "";
+  saveState();
+  renderProviderSettings();
+  toast("API key removed");
+}
+
 
     /* Online AI */
     const SYSTEM_PROMPT = `You are Batman AI, a friendly study assistant.
