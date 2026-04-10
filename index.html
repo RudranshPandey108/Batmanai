@@ -2017,11 +2017,7 @@ console.error("FULL ERROR =>", err);
 
   return data?.choices?.[0]?.message?.content || 'No response';
     }
-      const d = await r.json();
-      if (!r.ok || d.error) throw new Error(d?.error?.message || 'OpenRouter request failed');
-      return d?.choices?.[0]?.message?.content || 'No response';
-    }
-
+      
     async function callGemini(key, text, imgDataUrl) {
       const parts = [];
       if (imgDataUrl) {
