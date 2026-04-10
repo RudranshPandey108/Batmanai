@@ -48,9 +48,7 @@
       overflow-x:hidden;
     }
 
-    body{
-      min-height:100vh;
-    }
+    body{min-height:100vh}
 
     .demo-wrap{
       min-height:100vh;
@@ -108,7 +106,6 @@
       font-size:14px;
     }
 
-    /* FAB */
     #ai-fab-wrap{
       position:fixed;
       right:16px;
@@ -219,7 +216,6 @@
       border-radius:14px 0 0 14px;
     }
 
-    /* PANEL */
     #ai-panel{
       position:fixed;
       right:16px;
@@ -302,67 +298,6 @@
       font-size:17px;
     }
 
-    /* Provider quick panel */
-    #ai-provider-panel{
-      display:none;
-      padding:12px 14px;
-      border-bottom:1px solid var(--border2);
-      background:rgba(255,255,255,.02);
-      flex-shrink:0;
-    }
-    #ai-provider-panel.show{display:block}
-
-    .small-label{
-      font-size:11px;
-      color:var(--muted);
-      margin-bottom:8px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-weight:700;
-    }
-
-    .providers{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px;
-    }
-
-    .provider-card{
-      border:1px solid var(--border);
-      background:#0d1730;
-      border-radius:14px;
-      padding:11px 12px;
-      cursor:pointer;
-      transition:.18s ease;
-    }
-    .provider-card:hover{
-      transform:translateY(-1px);
-      border-color:rgba(255,216,76,.35);
-    }
-    .provider-card.active{
-      border-color:rgba(255,216,76,.58);
-      background:#101b34;
-      box-shadow:0 0 0 1px rgba(255,216,76,.18) inset;
-    }
-
-    .provider-name{
-      font-size:14px;
-      font-weight:700;
-      margin-bottom:6px;
-    }
-
-    .badge{
-      display:inline-flex;
-      padding:3px 7px;
-      border-radius:999px;
-      font-size:10px;
-      font-weight:800;
-      letter-spacing:.06em;
-    }
-    .badge.free{background:rgba(34,197,94,.15);color:#97ffb5}
-    .badge.paid{background:rgba(239,68,68,.14);color:#ffafaf}
-    .badge.trial{background:rgba(59,130,246,.15);color:#aecaff}
-
     #ai-body{
       flex:1;
       min-height:0;
@@ -392,6 +327,7 @@
       cursor:pointer;
       transition:.18s ease;
     }
+
     .qchip:hover{
       border-color:rgba(255,216,76,.3);
       color:#fff;
@@ -473,6 +409,7 @@
       align-items:center;
       gap:6px;
     }
+
     .typing-bub span{
       width:8px;
       height:8px;
@@ -482,6 +419,7 @@
     }
     .typing-bub span:nth-child(2){animation-delay:.12s}
     .typing-bub span:nth-child(3){animation-delay:.24s}
+
     @keyframes blink{
       0%,80%,100%{transform:translateY(0);opacity:.45}
       40%{transform:translateY(-4px);opacity:1}
@@ -783,7 +721,7 @@
       display:none;
     }
 
-    @media (max-width: 768px){
+    @media (max-width:768px){
       .demo-wrap{padding:16px}
       .hero{padding:18px}
 
@@ -796,6 +734,7 @@
         height:auto;
         border-radius:22px;
       }
+
       #ai-panel.expanded{
         top:6px;
         left:6px;
@@ -804,22 +743,24 @@
         width:auto;
         height:auto;
       }
+
       #ai-fab-wrap{
         right:14px;
         bottom:14px;
       }
+
       #ai-fab-label{
         display:none;
       }
+
       .msg-wrap{
         max-width:88%;
       }
-      .providers{
-        grid-template-columns:1fr;
-      }
+
       .head-btns{
         gap:6px;
       }
+
       .icon-btn{
         width:36px;
         height:36px;
@@ -873,21 +814,21 @@
       <h1>Batman AI Ultra Final</h1>
       <p>
         Bottom-right wale Batman button ko dabao. Chat kholo. Drag karo. Voice use karo. Image preview use karo.
-        API key ho toh online AI call karega, nahi ho toh offline help replies dega.
+        Ab online AI backend ke through chalega, direct browser se nahi.
       </p>
 
       <div class="hero-grid">
         <div class="hero-card">
-          <h3>Offline Ready</h3>
-          <p>Install, bookmark, features, offline mode, API help jaisi cheezein bina key ke reply karega.</p>
+          <h3>Backend Connected</h3>
+          <p>Ab frontend direct provider ko hit nahi karega. Replit backend ke through chalega.</p>
         </div>
         <div class="hero-card">
           <h3>Big Mobile UI</h3>
           <p>Phone pe chhota popup nahi — bada app-jaisa chat panel open hoga.</p>
         </div>
         <div class="hero-card">
-          <h3>Multi Provider</h3>
-          <p>Gemini, Groq, OpenRouter, OpenAI, Cohere provider selector diya gaya hai.</p>
+          <h3>Separate Settings</h3>
+          <p>Settings modal alag hai. Frontend me API key save nahi hogi.</p>
         </div>
         <div class="hero-card">
           <h3>Utilities</h3>
@@ -897,7 +838,6 @@
     </div>
   </div>
 
-  <!-- AI FAB Button -->
   <div id="ai-fab-wrap">
     <div id="ai-fab-label">🦇 Batman AI</div>
     <div id="ai-btn-ring-wrap">
@@ -917,13 +857,9 @@
     </div>
   </div>
 
-  <!-- Edge peek tab -->
   <div id="ai-show-tab" onclick="aiShowBtn()" title="Show AI">🦇 AI</div>
 
-  <!-- AI PANEL -->
   <div id="ai-panel">
-
-    <!-- Header -->
     <div id="ai-header">
       <div class="ai-head-left">
         <img
@@ -945,53 +881,19 @@
       </div>
     </div>
 
-    <!-- Provider quick panel -->
-    <div id="ai-provider-panel">
-      <div class="small-label">Choose AI Provider</div>
-
-      <div class="providers">
-        <div class="provider-card" id="pcard-gemini" onclick="selectProvider('gemini')">
-          <div class="provider-name">⚡ Gemini Flash</div>
-          <span class="badge free">FREE</span>
-        </div>
-
-        <div class="provider-card" id="pcard-groq" onclick="selectProvider('groq')">
-          <div class="provider-name">🚀 Groq</div>
-          <span class="badge free">FREE</span>
-        </div>
-
-        <div class="provider-card" id="pcard-openrouter" onclick="selectProvider('openrouter')">
-          <div class="provider-name">🔀 OpenRouter</div>
-          <span class="badge free">FREE</span>
-        </div>
-
-        <div class="provider-card" id="pcard-openai" onclick="selectProvider('openai')">
-          <div class="provider-name">🤖 OpenAI GPT-4o</div>
-          <span class="badge paid">PAID</span>
-        </div>
-
-        <div class="provider-card" id="pcard-cohere" onclick="selectProvider('cohere')">
-          <div class="provider-name">🌊 Cohere</div>
-          <span class="badge trial">TRIAL</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Chat body -->
     <div id="ai-body">
       <div id="chat-msgs" style="display:flex;flex-direction:column;gap:12px;"></div>
 
       <div id="chips-row" class="chips-row">
         <span class="qchip" onclick="quickAsk(this)">📚 Study tips</span>
         <span class="qchip" onclick="quickAsk(this)">📱 Install app</span>
-        <span class="qchip" onclick="quickAsk(this)">🔑 Get free API key</span>
+        <span class="qchip" onclick="quickAsk(this)">🔑 Backend setup</span>
         <span class="qchip" onclick="quickAsk(this)">🧮 Math help</span>
         <span class="qchip" onclick="quickAsk(this)">📡 Offline mode</span>
         <span class="qchip" onclick="quickAsk(this)">🎤 Voice input</span>
       </div>
     </div>
 
-    <!-- Image preview -->
     <div id="img-preview-wrap">
       <div class="img-preview-row">
         <img id="img-preview" src="" alt="preview" />
@@ -999,7 +901,6 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <div id="ai-footer">
       <div class="input-row">
         <button class="round-btn" id="img-upload-btn" onclick="document.getElementById('file-input-hidden').click()" title="Upload image">🖼️</button>
@@ -1016,7 +917,7 @@
       </div>
 
       <div class="foot-row">
-        <button id="provider-badge-btn" onclick="openSettingsModal()">⚙️ Gemini Flash</button>
+        <button id="provider-badge-btn" onclick="openSettingsModal()">⚙️ Backend Mode</button>
 
         <div class="foot-tools">
           <button class="tiny-btn" onclick="exportChat()">Export chat</button>
@@ -1027,7 +928,6 @@
     </div>
   </div>
 
-  <!-- SETTINGS MODAL -->
   <div id="ai-settings-modal">
     <div class="ai-settings-card">
       <div class="ai-settings-top">
@@ -1036,19 +936,19 @@
       </div>
 
       <div class="ai-settings-section">
-        <h3>AI Provider</h3>
+        <h3>Backend Mode</h3>
 
-        <div class="settings-label">Choose provider</div>
+        <div class="settings-label">Selected provider UI</div>
         <select id="settings-provider-select" class="settings-select" onchange="settingsProviderChanged()">
-          <option value="gemini">Gemini Flash</option>
           <option value="groq">Groq</option>
           <option value="openrouter">OpenRouter</option>
-          <option value="openai">OpenAI GPT-4o</option>
+          <option value="gemini">Gemini</option>
+          <option value="openai">OpenAI</option>
           <option value="cohere">Cohere</option>
         </select>
 
-        <div class="settings-label">API key</div>
-        <input id="settings-api-key" class="settings-input" type="password" placeholder="Paste API key here..." />
+        <div class="settings-label">Frontend API key</div>
+        <input id="settings-api-key" class="settings-input" type="password" placeholder="Backend mode: key Replit Secrets me rakho" />
 
         <div class="settings-row">
           <button class="settings-yellow-btn" onclick="saveKeyFromSettings()">Save Key</button>
@@ -1065,15 +965,978 @@
   <input id="file-input-hidden" type="file" accept="image/*" style="display:none;" />
 
   <script>
-    /* =========================
-       OFFLINE KNOWLEDGE BASE
-    ========================= */
+    const BACKEND_URL = "<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#07142d">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batman AI Ultra Final</title>
+
+  <style>
+    :root{
+      --bg:#07142d;
+      --bg2:#0b1c3d;
+      --panel:#020817;
+      --panel2:#0a1428;
+      --text:#eaf1ff;
+      --muted:#9fb0d1;
+      --gold:#ffd84c;
+      --gold2:#ffeaa0;
+      --blue:#2f67f0;
+      --blue2:#1e4cc0;
+      --border:rgba(255,255,255,.12);
+      --border2:rgba(255,255,255,.07);
+      --bot:#1b2940;
+      --user:#2f67f0;
+      --success:#22c55e;
+      --danger:#ef4444;
+      --shadow:0 18px 60px rgba(0,0,0,.42);
+      --radius:22px;
+      --purple:#5d2fe2;
+      --purple2:#7d47ff;
+      --purple3:#34205e;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      width:100%;
+      height:100%;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(47,103,240,.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(255,216,76,.08), transparent 22%),
+        linear-gradient(180deg, #081633 0%, #07142d 100%);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    body{min-height:100vh}
+
+    .demo-wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .hero{
+      width:min(980px,100%);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:26px;
+      backdrop-filter:blur(10px);
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:clamp(28px,4vw,48px);
+      color:#fff;
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:14px;
+      margin-top:22px;
+    }
+
+    .hero-card{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      border-radius:20px;
+      padding:16px;
+    }
+
+    .hero-card h3{
+      margin:0 0 6px;
+      font-size:17px;
+      color:var(--gold2);
+    }
+
+    .hero-card p{
+      margin:0;
+      font-size:14px;
+    }
+
+    #ai-fab-wrap{
+      position:fixed;
+      right:16px;
+      bottom:18px;
+      z-index:99998;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      touch-action:none;
+      user-select:none;
+    }
+
+    #ai-fab-label{
+      background:rgba(2,8,23,.86);
+      color:var(--gold2);
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:14px;
+      font-weight:700;
+      white-space:nowrap;
+      box-shadow:0 10px 25px rgba(0,0,0,.24);
+      backdrop-filter:blur(10px);
+    }
+
+    #ai-btn-ring-wrap{
+      position:relative;
+      width:76px;
+      height:76px;
+      display:grid;
+      place-items:center;
+      cursor:grab;
+      touch-action:none;
+    }
+    #ai-btn-ring-wrap.dragging{cursor:grabbing}
+
+    .pulse-ring,.pulse-ring2,.pulse-ring3{
+      position:absolute;
+      inset:0;
+      border-radius:50%;
+      border:2px solid rgba(255,216,76,.24);
+      animation:pulse 2.8s linear infinite;
+    }
+    .pulse-ring2{animation-delay:.7s}
+    .pulse-ring3{animation-delay:1.4s}
+
+    @keyframes pulse{
+      0%{transform:scale(.78);opacity:0}
+      18%{opacity:.8}
+      100%{transform:scale(1.36);opacity:0}
+    }
+
+    #ai-chat-btn{
+      position:relative;
+      width:64px;
+      height:64px;
+      border:none;
+      border-radius:50%;
+      overflow:hidden;
+      padding:0;
+      cursor:pointer;
+      background:#111;
+      box-shadow:
+        0 0 0 2px rgba(255,216,76,.18),
+        0 0 18px rgba(255,216,76,.26);
+    }
+
+    #ai-chat-btn img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .notif{
+      position:absolute;
+      top:2px;
+      right:2px;
+      min-width:20px;
+      height:20px;
+      border-radius:999px;
+      background:#ef4444;
+      color:#fff;
+      font-size:12px;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:0 6px;
+      font-weight:700;
+      border:2px solid #081633;
+    }
+
+    #ai-show-tab{
+      position:fixed;
+      z-index:99997;
+      display:none;
+      background:rgba(2,8,23,.9);
+      color:var(--gold2);
+      border:1px solid var(--border);
+      padding:12px 10px;
+      border-radius:0 14px 14px 0;
+      font-weight:700;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      backdrop-filter:blur(10px);
+    }
+    #ai-show-tab.r{
+      border-radius:14px 0 0 14px;
+    }
+
+    #ai-panel{
+      position:fixed;
+      right:16px;
+      bottom:104px;
+      width:min(96vw,540px);
+      height:min(88vh,820px);
+      background:linear-gradient(180deg, rgba(2,8,23,.98), rgba(3,11,28,.98));
+      border:1px solid var(--border);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      display:none;
+      flex-direction:column;
+      z-index:99999;
+      backdrop-filter:blur(16px);
+    }
+    #ai-panel.open{display:flex}
+    #ai-panel.expanded{
+      width:min(98vw,760px);
+      height:min(94vh,940px);
+      right:10px;
+      bottom:10px;
+    }
+
+    #ai-header{
+      padding:14px;
+      border-bottom:1px solid var(--border2);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-shrink:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+    }
+
+    .ai-head-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+
+    .ai-head-left img{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      object-fit:cover;
+      border:1.5px solid var(--border);
+      flex-shrink:0;
+    }
+
+    .ai-title{
+      font-weight:800;
+      font-size:18px;
+      color:#fff;
+    }
+
+    #ai-status-txt{
+      margin-top:2px;
+      font-size:12px;
+      color:#87f7a7;
+    }
+
+    .head-btns{
+      display:flex;
+      gap:8px;
+      flex-shrink:0;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .icon-btn{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#0d1730;
+      color:#fff;
+      cursor:pointer;
+      font-size:17px;
+    }
+
+    #ai-body{
+      flex:1;
+      min-height:0;
+      overflow-y:auto;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,0)),
+        radial-gradient(circle at top, rgba(47,103,240,.05), transparent 28%);
+    }
+
+    .chips-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .qchip{
+      border:1px solid var(--border);
+      background:#0d1730;
+      color:#e2ecff;
+      padding:9px 12px;
+      border-radius:999px;
+      font-size:13px;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    .qchip:hover{
+      border-color:rgba(255,216,76,.3);
+      color:#fff;
+    }
+
+    .cm{
+      display:flex;
+      gap:10px;
+      align-items:flex-end;
+    }
+    .cm.user{justify-content:flex-end}
+    .cm.bot{justify-content:flex-start}
+
+    .bot-av{
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      overflow:hidden;
+      flex-shrink:0;
+      border:1px solid var(--border);
+      background:#0d1730;
+      display:grid;
+      place-items:center;
+    }
+    .bot-av img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .msg-wrap{
+      max-width:82%;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .cm-bub{
+      padding:13px 14px;
+      border-radius:18px;
+      font-size:15px;
+      line-height:1.55;
+      word-wrap:break-word;
+      border:1px solid rgba(255,255,255,.04);
+      white-space:pre-wrap;
+    }
+
+    .cm.user .cm-bub{
+      background:linear-gradient(180deg, var(--user), var(--blue2));
+      color:#fff;
+      border-bottom-right-radius:8px;
+    }
+
+    .cm.bot .cm-bub{
+      background:linear-gradient(180deg, #1d2a3f, #182538);
+      color:#eef3ff;
+      border-bottom-left-radius:8px;
+    }
+
+    .cm-time{
+      font-size:11px;
+      color:var(--muted);
+      padding:0 6px;
+    }
+    .cm.user .cm-time{text-align:right}
+
+    .cm-img{
+      width:100%;
+      max-height:220px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:8px;
+      border:1px solid var(--border);
+    }
+
+    .typing-bub{
+      min-width:74px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .typing-bub span{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#bcc9e5;
+      animation:blink 1.1s infinite ease-in-out;
+    }
+    .typing-bub span:nth-child(2){animation-delay:.12s}
+    .typing-bub span:nth-child(3){animation-delay:.24s}
+
+    @keyframes blink{
+      0%,80%,100%{transform:translateY(0);opacity:.45}
+      40%{transform:translateY(-4px);opacity:1}
+    }
+
+    #img-preview-wrap{
+      display:none;
+      padding:10px 14px;
+      border-top:1px solid var(--border2);
+      background:rgba(255,255,255,.02);
+      flex-shrink:0;
+    }
+    #img-preview-wrap.show{display:block}
+
+    .img-preview-row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    #img-preview{
+      width:62px;
+      height:62px;
+      border-radius:14px;
+      object-fit:cover;
+      border:1px solid var(--border);
+      background:#0d1730;
+    }
+
+    .tiny-danger{
+      border:none;
+      background:#2a0d14;
+      color:#ffb1b1;
+      padding:8px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    #ai-footer{
+      padding:12px 14px 14px;
+      border-top:1px solid var(--border2);
+      background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,0));
+      flex-shrink:0;
+    }
+
+    .input-row{
+      display:flex;
+      align-items:flex-end;
+      gap:8px;
+      margin-bottom:10px;
+    }
+
+    .round-btn{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#0d1730;
+      color:#fff;
+      cursor:pointer;
+      font-size:18px;
+      flex-shrink:0;
+    }
+
+    #chat-input-txt{
+      flex:1;
+      min-height:46px;
+      max-height:130px;
+      resize:none;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:#0d1730;
+      color:#fff;
+      outline:none;
+      font-size:15px;
+      line-height:1.45;
+      font-family:inherit;
+    }
+
+    #chat-send-btn{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:none;
+      background:linear-gradient(180deg, var(--gold), #f5bf20);
+      color:#171717;
+      cursor:pointer;
+      flex-shrink:0;
+      font-size:18px;
+      font-weight:900;
+    }
+
+    .foot-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    #provider-badge-btn{
+      border:1px solid var(--border);
+      background:#111b31;
+      color:var(--gold2);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      cursor:pointer;
+      font-weight:800;
+    }
+
+    .foot-tools{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .tiny-btn{
+      border:1px solid var(--border);
+      background:#0d1730;
+      color:#dbe7ff;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:12px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .foot-hint{
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    .snap-anim{
+      transition:left .38s ease, top .38s ease;
+    }
+
+    .offscreen{
+      visibility:hidden;
+    }
+
+    @keyframes sparkleFloat{
+      0%{
+        transform:translate(-50%,-50%) scale(.6);
+        opacity:1;
+      }
+      100%{
+        transform:translate(calc(-50% + var(--sx)), calc(-50% + var(--sy))) scale(1.35);
+        opacity:0;
+      }
+    }
+
+    /* SETTINGS MODAL */
+    #ai-settings-modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.58);
+      backdrop-filter:blur(8px);
+      z-index:100000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+
+    #ai-settings-modal.show{
+      display:flex;
+    }
+
+    .ai-settings-card{
+      width:min(92vw,700px);
+      max-height:88vh;
+      overflow:auto;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(7,20,45,.98), rgba(4,12,28,.98));
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:20px;
+    }
+
+    .ai-settings-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
+    }
+
+    .ai-settings-title{
+      font-size:24px;
+      font-weight:900;
+      color:#fff;
+    }
+
+    .ai-settings-close{
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:14px;
+      background:#1a2440;
+      color:#fff;
+      font-size:20px;
+      cursor:pointer;
+      border:1px solid var(--border);
+    }
+
+    .ai-settings-section{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      border-radius:24px;
+      padding:18px;
+      margin-bottom:16px;
+    }
+
+    .ai-settings-section h3{
+      margin:0 0 14px;
+      font-size:22px;
+      color:var(--gold2);
+    }
+
+    .settings-label{
+      font-size:13px;
+      color:var(--muted);
+      margin:0 0 8px 4px;
+      font-weight:700;
+    }
+
+    .settings-select,
+    .settings-input{
+      width:100%;
+      height:58px;
+      border:1px solid var(--border);
+      background:#281650;
+      color:#fff;
+      border-radius:18px;
+      padding:0 18px;
+      outline:none;
+      font-size:18px;
+      margin-bottom:14px;
+    }
+
+    .settings-select{
+      appearance:none;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      cursor:pointer;
+    }
+
+    .settings-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .settings-yellow-btn,
+    .settings-purple-btn{
+      border:none;
+      border-radius:999px;
+      height:50px;
+      padding:0 22px;
+      font-weight:900;
+      cursor:pointer;
+      font-size:17px;
+    }
+
+    .settings-yellow-btn{
+      background:linear-gradient(180deg, var(--gold), #f5bf20);
+      color:#171717;
+    }
+
+    .settings-purple-btn{
+      background:#39216e;
+      color:#fff;
+      border:1px solid var(--border);
+    }
+
+    .settings-note{
+      margin-top:12px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    #settings-provider-desc{
+      color:#d8e3ff;
+    }
+
+    .settings-mini{
+      margin-top:12px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      color:#b9ffce;
+      font-size:13px;
+      display:none;
+    }
+
+    @media (max-width:768px){
+      .demo-wrap{padding:16px}
+      .hero{padding:18px}
+
+      #ai-panel{
+        top:10px;
+        left:10px;
+        right:10px;
+        bottom:10px;
+        width:auto;
+        height:auto;
+        border-radius:22px;
+      }
+
+      #ai-panel.expanded{
+        top:6px;
+        left:6px;
+        right:6px;
+        bottom:6px;
+        width:auto;
+        height:auto;
+      }
+
+      #ai-fab-wrap{
+        right:14px;
+        bottom:14px;
+      }
+
+      #ai-fab-label{
+        display:none;
+      }
+
+      .msg-wrap{
+        max-width:88%;
+      }
+
+      .head-btns{
+        gap:6px;
+      }
+
+      .icon-btn{
+        width:36px;
+        height:36px;
+      }
+
+      .ai-settings-card{
+        width:96vw;
+        padding:16px;
+        border-radius:22px;
+      }
+
+      .ai-settings-title{
+        font-size:20px;
+      }
+
+      .ai-settings-section h3{
+        font-size:18px;
+      }
+
+      .settings-select,
+      .settings-input{
+        height:52px;
+        font-size:16px;
+        border-radius:16px;
+      }
+
+      .settings-yellow-btn,
+      .settings-purple-btn{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js")
+          .then(() => {
+            console.log("Service Worker registered successfully");
+          })
+          .catch(err => {
+            console.log("Service Worker error:", err);
+          });
+      });
+    }
+  </script>
+
+  <div class="demo-wrap">
+    <div class="hero">
+      <h1>Batman AI Ultra Final</h1>
+      <p>
+        Bottom-right wale Batman button ko dabao. Chat kholo. Drag karo. Voice use karo. Image preview use karo.
+        Ab online AI backend ke through chalega, direct browser se nahi.
+      </p>
+
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>Backend Connected</h3>
+          <p>Ab frontend direct provider ko hit nahi karega. Replit backend ke through chalega.</p>
+        </div>
+        <div class="hero-card">
+          <h3>Big Mobile UI</h3>
+          <p>Phone pe chhota popup nahi — bada app-jaisa chat panel open hoga.</p>
+        </div>
+        <div class="hero-card">
+          <h3>Separate Settings</h3>
+          <p>Settings modal alag hai. Frontend me API key save nahi hogi.</p>
+        </div>
+        <div class="hero-card">
+          <h3>Utilities</h3>
+          <p>Voice input, image preview, export chat, clear chat, saved history sab diya gaya hai.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="ai-fab-wrap">
+    <div id="ai-fab-label">🦇 Batman AI</div>
+    <div id="ai-btn-ring-wrap">
+      <div class="pulse-ring"></div>
+      <div class="pulse-ring2"></div>
+      <div class="pulse-ring3"></div>
+
+      <button id="ai-chat-btn" title="Open Batman AI">
+        <img
+          src="https://images.unsplash.com/photo-1611605698335-8b1569810432?q=80&w=400&auto=format&fit=crop"
+          alt="Batman AI"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="notif" id="ai-notif">1</div>
+      </button>
+    </div>
+  </div>
+
+  <div id="ai-show-tab" onclick="aiShowBtn()" title="Show AI">🦇 AI</div>
+
+  <div id="ai-panel">
+    <div id="ai-header">
+      <div class="ai-head-left">
+        <img
+          src="https://images.unsplash.com/photo-1611605698335-8b1569810432?q=80&w=400&auto=format&fit=crop"
+          alt="AI"
+        />
+        <div>
+          <div class="ai-title">🦇 Batman AI</div>
+          <div id="ai-status-txt">● Online — Ask anything!</div>
+        </div>
+      </div>
+
+      <div class="head-btns">
+        <button class="icon-btn" onclick="openSettingsModal()" title="Settings">⚙️</button>
+        <button class="icon-btn" onclick="aiExpand()" title="Expand">⛶</button>
+        <button class="icon-btn" onclick="clearChat()" title="Clear chat">🗑️</button>
+        <button class="icon-btn" onclick="showHelpMessage()" title="Help">?</button>
+        <button class="icon-btn" onclick="aiToggle()" title="Close">✕</button>
+      </div>
+    </div>
+
+    <div id="ai-body">
+      <div id="chat-msgs" style="display:flex;flex-direction:column;gap:12px;"></div>
+
+      <div id="chips-row" class="chips-row">
+        <span class="qchip" onclick="quickAsk(this)">📚 Study tips</span>
+        <span class="qchip" onclick="quickAsk(this)">📱 Install app</span>
+        <span class="qchip" onclick="quickAsk(this)">🔑 Backend setup</span>
+        <span class="qchip" onclick="quickAsk(this)">🧮 Math help</span>
+        <span class="qchip" onclick="quickAsk(this)">📡 Offline mode</span>
+        <span class="qchip" onclick="quickAsk(this)">🎤 Voice input</span>
+      </div>
+    </div>
+
+    <div id="img-preview-wrap">
+      <div class="img-preview-row">
+        <img id="img-preview" src="" alt="preview" />
+        <button class="tiny-danger" onclick="removeImage()">Remove</button>
+      </div>
+    </div>
+
+    <div id="ai-footer">
+      <div class="input-row">
+        <button class="round-btn" id="img-upload-btn" onclick="document.getElementById('file-input-hidden').click()" title="Upload image">🖼️</button>
+        <button class="round-btn" onclick="startVoiceInput()" title="Voice input">🎤</button>
+
+        <textarea
+          id="chat-input-txt"
+          rows="1"
+          placeholder="Koi bhi doubt poochho... 🦇"
+          oninput="aiResize(this)"
+        ></textarea>
+
+        <button id="chat-send-btn" onclick="aiSend()" title="Send">➤</button>
+      </div>
+
+      <div class="foot-row">
+        <button id="provider-badge-btn" onclick="openSettingsModal()">⚙️ Backend Mode</button>
+
+        <div class="foot-tools">
+          <button class="tiny-btn" onclick="exportChat()">Export chat</button>
+          <button class="tiny-btn" onclick="toggleInstallGuide()">Install help</button>
+          <span class="foot-hint">Enter = Send • Shift+Enter = New line</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="ai-settings-modal">
+    <div class="ai-settings-card">
+      <div class="ai-settings-top">
+        <div class="ai-settings-title">Settings</div>
+        <button class="ai-settings-close" onclick="closeSettingsModal()">✕</button>
+      </div>
+
+      <div class="ai-settings-section">
+        <h3>Backend Mode</h3>
+
+        <div class="settings-label">Selected provider UI</div>
+        <select id="settings-provider-select" class="settings-select" onchange="settingsProviderChanged()">
+          <option value="groq">Groq</option>
+          <option value="openrouter">OpenRouter</option>
+          <option value="gemini">Gemini</option>
+          <option value="openai">OpenAI</option>
+          <option value="cohere">Cohere</option>
+        </select>
+
+        <div class="settings-label">Frontend API key</div>
+        <input id="settings-api-key" class="settings-input" type="password" placeholder="Backend mode: key Replit Secrets me rakho" />
+
+        <div class="settings-row">
+          <button class="settings-yellow-btn" onclick="saveKeyFromSettings()">Save Key</button>
+          <button class="settings-purple-btn" onclick="removeKeyFromSettings()">Remove Key</button>
+          <button class="settings-purple-btn" onclick="toggleSettingsKeyView()">Show / Hide</button>
+        </div>
+
+        <div class="settings-note" id="settings-provider-desc"></div>
+        <div class="settings-mini" id="settings-saved-note"></div>
+      </div>
+    </div>
+  </div>
+
+  <input id="file-input-hidden" type="file" accept="image/*" style="display:none;" />
+
+  <script>
+    const BACKEND_URL = "https://YOUR-REPL-URL.replit.app/chat";
+
     const OFFLINE_KB = [
       {
-        patterns: [
-          "install", "install app", "add to home screen", "homescreen",
-          "phone pe install", "mobile install", "pwa", "install help"
-        ],
+        patterns: ["install", "install app", "add to home screen", "homescreen", "phone pe install", "mobile install", "pwa", "install help"],
         reply: `📲 App install kaise karein:
 
 Android Chrome:
@@ -1091,9 +1954,7 @@ Laptop:
 Browser ke address bar ke paas install icon bhi aa sakta hai.`
       },
       {
-        patterns: [
-          "bookmark", "save website", "save", "bookmark kaise", "website save", "star"
-        ],
+        patterns: ["bookmark", "save website", "save", "bookmark kaise", "website save", "star"],
         reply: `🔖 Bookmark kaise karein:
 
 Laptop/Desktop:
@@ -1104,13 +1965,11 @@ Mobile Chrome:
 • 3-dot menu → Star icon`
       },
       {
-        patterns: [
-          "offline", "without internet", "bina internet", "net ke bina", "offline mode"
-        ],
+        patterns: ["offline", "without internet", "bina internet", "net ke bina", "offline mode"],
         reply: `📡 Offline mode:
 
 Ye app offline me basic help replies de sakta hai.
-Online AI replies ke liye internet chahiye.
+Online AI replies ke liye internet chahiye aur backend bhi live hona chahiye.
 
 Offline me:
 • app UI chalega
@@ -1118,66 +1977,47 @@ Offline me:
 • install/help/features wale replies milenge`
       },
       {
-        patterns: [
-          "progress", "save progress", "data save", "reset progress", "history"
-        ],
-        reply: `💾 Data save:
+        patterns: ["backend", "backend setup", "replit", "server"],
+        reply: `⚙️ Backend setup:
 
-Chat history localStorage me save hoti hai.
-Browser data clear karoge toh history delete ho sakti hai.
-
-Clear chat button se current chat manually bhi hata sakte ho.`
+1. Replit pe Node.js app banao
+2. server.js aur package.json dalo
+3. GROQ_API_KEY secret add karo
+4. Run karo
+5. Frontend me BACKEND_URL me apna Replit URL dalo`
       },
       {
-        patterns: [
-          "features", "feature", "help", "kya kya", "what can you do", "about"
-        ],
+        patterns: ["features", "feature", "help", "kya kya", "what can you do", "about"],
         reply: `🌟 Batman AI Ultra Features:
 
 • Draggable floating AI button
 • Big mobile chat panel
 • Offline replies
-• API based online AI
-• Provider switch
+• Backend-based online AI
+• Separate settings modal
 • Image preview
 • Voice input
 • Export chat
 • Clear chat
-• Saved chat history
-• Separate settings modal for API keys`
+• Saved chat history`
       },
       {
-        patterns: [
-          "api", "api key", "free api key", "key kaha se", "get api key"
-        ],
-        reply: `🔑 Free API key options:
+        patterns: ["api", "api key", "free api key", "key kaha se", "get api key"],
+        reply: `🔑 Ab frontend me direct API key use nahi ho rahi.
 
-1. OpenRouter
-2. Gemini
-3. Groq
-
-Ab key daalne ke liye settings button ⚙️ use karo.
-
-Agar sirf offline use karna hai toh API key zaroori nahi hai.`
+API key backend me Replit Secrets me rakho.
+Recommended backend provider: Groq.`
       },
       {
-        patterns: [
-          "hi", "hello", "hey", "namaste", "hii", "yo"
-        ],
+        patterns: ["hi", "hello", "hey", "namaste", "hii", "yo"],
         reply: `Namaste bhai 👋
 Main Batman AI hoon.
 
-Tum mujhse poochh sakte ho:
-• install app
-• bookmark
-• offline mode
-• features
-• api key`
+Agar backend sahi connected hai toh online jawab dunga.
+Nahi toh offline help replies dunga.`
       },
       {
-        patterns: [
-          "voice", "voice input", "mic", "speak", "bolke"
-        ],
+        patterns: ["voice", "voice input", "mic", "speak", "bolke"],
         reply: `🎤 Voice input:
 
 Mic button dabao.
@@ -1185,6 +2025,31 @@ Browser permission maange toh allow karo.
 Jo bologe woh input box me aa jayega.`
       }
     ];
+
+    const PROVIDER_DESCRIPTIONS = {
+      groq: 'Recommended. Backend pe Groq easiest aur fast hai.',
+      openrouter: 'Backend ke through use kar sakte ho.',
+      gemini: 'Backend logic alag lagana padega.',
+      openai: 'Paid backend provider.',
+      cohere: 'Backend text provider.'
+    };
+
+    let aiProvider = localStorage.getItem('batman_provider_backend_ui') || 'groq';
+    let chatHistory = JSON.parse(localStorage.getItem('batman_chat_history') || '[]');
+    let isBusy = false;
+    let pendingImageB64 = null;
+    let pendingImageMime = null;
+    let settingsKeyVisible = false;
+
+    const fabWrap = document.getElementById('ai-fab-wrap');
+    const ringWrap = document.getElementById('ai-btn-ring-wrap');
+    const showTab = document.getElementById('ai-show-tab');
+    const BTN_W = 90, EDGE_ZONE = 35;
+
+    let fabL = window.innerWidth - 130;
+    let fabT = window.innerHeight - 120;
+    let pointerDownX, pointerDownY, fabDownL, fabDownT;
+    let dragging = false, moved = false;
 
     function normalizeText(text) {
       return String(text || "")
@@ -1200,7 +2065,6 @@ Jo bologe woh input box me aa jayega.`
       for (const item of OFFLINE_KB) {
         for (const p of item.patterns) {
           const pattern = normalizeText(p);
-
           if (
             t.includes(pattern) ||
             pattern.includes(t) ||
@@ -1214,87 +2078,11 @@ Jo bologe woh input box me aa jayega.`
       return `🤖 Offline mode me main basic help de sakta hoon.
 
 Try these:
+• backend setup
 • install app
-• bookmark
 • offline mode
-• features
-• api key`;
+• features`;
     }
-
-    /* =========================
-       PROVIDERS
-    ========================= */
-    const AI_PROVIDERS = {
-      gemini: {
-        name: 'Gemini Flash',
-        label: '⚡ Setup Gemini (Free)',
-        hint: `Go to <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com</a> → Create API key → paste below`,
-        storageKey: 'batman_key_gemini',
-        supportsImage: true
-      },
-      groq: {
-        name: 'Groq (Fast & Free)',
-        label: '🚀 Setup Groq (Free)',
-        hint: `Go to <a href="https://console.groq.com/keys" target="_blank">console.groq.com</a> → Create key → paste below`,
-        storageKey: 'batman_key_groq',
-        supportsImage: false
-      },
-      openrouter: {
-        name: 'OpenRouter',
-        label: '🔀 Setup OpenRouter (Free Models)',
-        hint: `Go to <a href="https://openrouter.ai/keys" target="_blank">openrouter.ai/keys</a> → Create key → paste below`,
-        storageKey: 'batman_key_openrouter',
-        supportsImage: true
-      },
-      openai: {
-        name: 'OpenAI GPT-4o',
-        label: '🤖 Setup OpenAI',
-        hint: `Go to <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com</a> → Create key → paste below`,
-        storageKey: 'batman_key_openai',
-        supportsImage: true
-      },
-      cohere: {
-        name: 'Cohere',
-        label: '🌊 Setup Cohere',
-        hint: `Go to <a href="https://dashboard.cohere.com/api-keys" target="_blank">dashboard.cohere.com</a> → Create key → paste below`,
-        storageKey: 'batman_key_cohere',
-        supportsImage: false
-      }
-    };
-
-    const PROVIDER_DESCRIPTIONS = {
-      gemini: 'Good general provider. Image support bhi deta hai.',
-      groq: 'Fast free text chat provider.',
-      openrouter: 'Multiple free/paid models ek jagah se access kar sakte ho.',
-      openai: 'Premium provider. Paid API lagti hai.',
-      cohere: 'Text-focused provider. Simple chat ke liye achha hai.'
-    };
-
-    const SYSTEM_PROMPT = `You are Batman AI, a helpful and friendly study assistant.
-Explain things clearly.
-Use simple Hinglish when natural.
-Keep answers readable and useful.
-Do not overcomplicate.`;
-
-    let aiProvider = localStorage.getItem('batman_provider') || 'gemini';
-    let chatHistory = JSON.parse(localStorage.getItem('batman_chat_history') || '[]');
-    let isBusy = false;
-    let pendingImageB64 = null;
-    let pendingImageMime = null;
-    let settingsKeyVisible = false;
-
-    /* =========================
-       FAB DRAG
-    ========================= */
-    const fabWrap = document.getElementById('ai-fab-wrap');
-    const ringWrap = document.getElementById('ai-btn-ring-wrap');
-    const showTab = document.getElementById('ai-show-tab');
-    const BTN_W = 90, EDGE_ZONE = 35;
-
-    let fabL = window.innerWidth - 130;
-    let fabT = window.innerHeight - 120;
-    let pointerDownX, pointerDownY, fabDownL, fabDownT;
-    let dragging = false, moved = false;
 
     function clamp(v, lo, hi){
       return Math.max(lo, Math.min(v, hi));
@@ -1450,9 +2238,6 @@ Do not overcomplicate.`;
       }
     }
 
-    /* =========================
-       UI ACTIONS
-    ========================= */
     function aiToggle() {
       const p = document.getElementById('ai-panel');
       p.classList.toggle('open');
@@ -1465,17 +2250,12 @@ Do not overcomplicate.`;
         if (!chatHistory.length && !document.getElementById('chat-msgs').children.length) {
           botMsg(`Namaste! 👋 Main hoon Batman AI.
 
-Main kya kar sakta hoon:
-• padhai me help
-• normal chat
-• voice input
-• image preview
-• different AI providers
-• offline replies
+Ab ye app backend ke through AI se baat karta hai.
 
-No API key?
-Koi baat nahi. Settings ⚙️ me jaake key save kar sakte ho.
-Main help-type questions ka offline jawab bhi de dunga.`);
+Kaam karne ke liye:
+1. Replit backend run hona chahiye
+2. BACKEND_URL sahi hona chahiye
+3. Backend me API key secret set honi chahiye`);
         }
       }
     }
@@ -1484,33 +2264,11 @@ Main help-type questions ka offline jawab bhi de dunga.`);
       document.getElementById('ai-panel').classList.toggle('expanded');
     }
 
-    function toggleProviderPanel() {
-      document.getElementById('ai-provider-panel').classList.toggle('show');
-    }
-
-    function selectProvider(p) {
-      aiProvider = p;
-      localStorage.setItem('batman_provider', p);
-      renderProvider();
-      document.getElementById('ai-provider-panel').classList.remove('show');
-      botMsg(`Provider switched to ${AI_PROVIDERS[p].name}.`);
-    }
-
     function renderProvider() {
-      Object.keys(AI_PROVIDERS).forEach(k => {
-        const el = document.getElementById('pcard-' + k);
-        if (el) el.classList.remove('active');
-      });
-
-      const current = document.getElementById('pcard-' + aiProvider);
-      if (current) current.classList.add('active');
-
-      const pv = AI_PROVIDERS[aiProvider];
-      document.getElementById('provider-badge-btn').textContent = '⚙️ ' + pv.name;
-
+      document.getElementById('provider-badge-btn').textContent = '⚙️ ' + aiProvider.toUpperCase() + ' Backend';
       const imgBtn = document.getElementById('img-upload-btn');
-      imgBtn.style.opacity = pv.supportsImage ? '1' : '.4';
-      imgBtn.title = pv.supportsImage ? 'Upload image' : 'Image not supported by this provider';
+      imgBtn.style.opacity = '.4';
+      imgBtn.title = 'Backend version me image abhi disabled hai';
     }
 
     function getTime() {
@@ -1593,7 +2351,6 @@ Main help-type questions ka offline jawab bhi de dunga.`);
 
     function renderSavedChat() {
       if (!chatHistory.length) return;
-
       for (const item of chatHistory) {
         if (item.role === 'user') userMsg(item.text || '', item.imgSrc || null);
         else botMsg(item.text || '', item.imgSrc || null);
@@ -1642,15 +2399,12 @@ Main help-type questions ka offline jawab bhi de dunga.`);
 
 • Settings ke liye ⚙️
 • Voice ke liye 🎤
-• Image preview ke liye 🖼️
 • Export ke liye "Export chat"
 • Clear ke liye 🗑️
 
-API key dalne ke liye:
-⚙️ Settings → provider choose karo → key save karo
-
-Offline mode me:
-install, bookmark, features, api key, offline help ka jawab mil jayega.`);
+Important:
+Ye app ab backend ke through online AI use karta hai.
+Frontend me API key save nahi hoti.`);
     }
 
     function toggleInstallGuide() {
@@ -1666,13 +2420,9 @@ iPhone Safari:
 2. "Add to Home Screen"
 
 Note:
-True PWA install prompt ke liye alag manifest + service worker files chahiye hote hain.
-Ye single HTML version app-jaisa UI deta hai.`);
+Installable PWA ke liye manifest + service worker files chahiye.`);
     }
 
-    /* =========================
-       SETTINGS MODAL
-    ========================= */
     function openSettingsModal() {
       document.getElementById('ai-settings-modal').classList.add('show');
       document.getElementById('settings-provider-select').value = aiProvider;
@@ -1684,56 +2434,31 @@ Ye single HTML version app-jaisa UI deta hai.`);
     }
 
     function settingsProviderChanged() {
-      const p = document.getElementById('settings-provider-select').value;
-      aiProvider = p;
-      localStorage.setItem('batman_provider', p);
+      aiProvider = document.getElementById('settings-provider-select').value;
+      localStorage.setItem('batman_provider_backend_ui', aiProvider);
       renderProvider();
       refreshSettingsModal();
     }
 
     function refreshSettingsModal() {
       const p = document.getElementById('settings-provider-select').value;
-      const key = localStorage.getItem(AI_PROVIDERS[p].storageKey) || '';
       const desc = document.getElementById('settings-provider-desc');
       const note = document.getElementById('settings-saved-note');
       const input = document.getElementById('settings-api-key');
 
-      input.value = key;
-      desc.innerHTML = `${AI_PROVIDERS[p].label}<br>${AI_PROVIDERS[p].hint}<br><br>${PROVIDER_DESCRIPTIONS[p] || ''}`;
-
-      if (key) {
-        note.style.display = 'block';
-        note.textContent = `Saved key found for ${AI_PROVIDERS[p].name}.`;
-      } else {
-        note.style.display = 'none';
-        note.textContent = '';
-      }
+      input.value = "";
+      input.placeholder = "Backend mode: key Replit Secrets me rakho";
+      desc.innerHTML = `Selected provider UI: ${p.toUpperCase()}<br><br>${PROVIDER_DESCRIPTIONS[p] || ''}<br><br>Actual API key backend me Replit Secrets me rakho.`;
+      note.style.display = 'block';
+      note.textContent = 'Frontend key disabled in backend mode.';
     }
 
     function saveKeyFromSettings() {
-      const p = document.getElementById('settings-provider-select').value;
-      const v = document.getElementById('settings-api-key').value.trim();
-
-      if (!v) {
-        alert('Pehle API key daalo.');
-        return;
-      }
-
-      localStorage.setItem(AI_PROVIDERS[p].storageKey, v);
-      aiProvider = p;
-      localStorage.setItem('batman_provider', p);
-      renderProvider();
-      refreshSettingsModal();
-      botMsg(`Key saved for ${AI_PROVIDERS[p].name}.`);
+      botMsg("Ab API key frontend me save nahi hogi. Key backend me Replit Secrets me rakho.");
     }
 
     function removeKeyFromSettings() {
-      const p = document.getElementById('settings-provider-select').value;
-      localStorage.removeItem(AI_PROVIDERS[p].storageKey);
-      document.getElementById('settings-api-key').value = '';
-      renderProvider();
-      refreshSettingsModal();
-      botMsg(`Key removed for ${AI_PROVIDERS[p].name}.`);
+      botMsg("Frontend key remove karne ki zarurat nahi. Backend key Replit Secrets me hoti hai.");
     }
 
     function toggleSettingsKeyView() {
@@ -1744,37 +2469,13 @@ Ye single HTML version app-jaisa UI deta hai.`);
 
     window.addEventListener('click', (e) => {
       const modal = document.getElementById('ai-settings-modal');
-      if (e.target === modal) {
-        closeSettingsModal();
-      }
+      if (e.target === modal) closeSettingsModal();
     });
 
-    /* =========================
-       IMAGE HANDLING
-    ========================= */
     document.getElementById('file-input-hidden').addEventListener('change', handleImageSelect);
 
     function handleImageSelect(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-
-      const pv = AI_PROVIDERS[aiProvider];
-      if (!pv.supportsImage) {
-        alert('Current provider image support nahi karta. Gemini/OpenRouter/OpenAI use karo.');
-        e.target.value = '';
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = ev => {
-        const dataUrl = ev.target.result;
-        pendingImageB64 = dataUrl.split(',')[1];
-        pendingImageMime = file.type;
-        document.getElementById('img-preview').src = dataUrl;
-        document.getElementById('img-preview-wrap').classList.add('show');
-      };
-      reader.readAsDataURL(file);
-
+      alert('Backend version me image input abhi disabled hai. Pehle text backend kaam kara lo.');
       e.target.value = '';
     }
 
@@ -1785,9 +2486,6 @@ Ye single HTML version app-jaisa UI deta hai.`);
       document.getElementById('img-preview').src = '';
     }
 
-    /* =========================
-       VOICE INPUT
-    ========================= */
     function startVoiceInput() {
       const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -1826,9 +2524,6 @@ Ye single HTML version app-jaisa UI deta hai.`);
       rec.start();
     }
 
-    /* =========================
-       INPUT SEND
-    ========================= */
     document.getElementById('chat-input-txt').addEventListener('keydown', function(e){
       if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
@@ -1836,69 +2531,55 @@ Ye single HTML version app-jaisa UI deta hai.`);
       }
     });
 
-    function hasProviderKey() {
-      const provider = AI_PROVIDERS[aiProvider];
-      if (!provider) return false;
-      return !!localStorage.getItem(provider.storageKey);
+    function hasBackendConfigured() {
+      return BACKEND_URL && !BACKEND_URL.includes("YOUR-REPL-URL");
     }
 
     async function aiSend() {
       const inp = document.getElementById('chat-input-txt');
       const text = inp.value.trim();
 
-      if ((!text && !pendingImageB64) || isBusy) return;
-
-      const imgSnapshot = pendingImageB64 ? `data:${pendingImageMime};base64,${pendingImageB64}` : null;
+      if (!text || isBusy) return;
 
       inp.value = '';
       aiResize(inp);
 
-      userMsg(text, imgSnapshot);
+      userMsg(text, null);
       chatHistory.push({
         role:'user',
-        text:text || '[image]',
-        imgSrc:imgSnapshot || null
+        text:text,
+        imgSrc:null
       });
       persistChat();
 
       document.getElementById('chips-row').style.display = 'none';
 
-      if (imgSnapshot) removeImage();
-
-      /* OFFLINE REPLY FIRST */
-      if (!navigator.onLine || !hasProviderKey()) {
-        showTyping();
-        await new Promise(r => setTimeout(r, 450));
-        hideTyping();
-
-        const offlineReply = getOfflineReply(text || 'image');
-        botMsg(offlineReply);
-        chatHistory.push({
-          role:'bot',
-          text:offlineReply,
-          imgSrc:null
-        });
-        persistChat();
-        return;
-      }
-
-      /* SIMPLE HELP WORDS KO OFFLINE SE JAWAB */
-      const lower = (text || '').toLowerCase();
+      const lower = text.toLowerCase();
       const simpleHelp = (
         lower.includes('install') ||
         lower.includes('bookmark') ||
         lower.includes('offline') ||
         lower.includes('feature') ||
         lower.includes('api') ||
-        lower.includes('help')
+        lower.includes('help') ||
+        lower.includes('backend') ||
+        lower.includes('replit')
       );
 
-      if (simpleHelp) {
+      if (!navigator.onLine || !hasBackendConfigured() || simpleHelp) {
         showTyping();
         await new Promise(r => setTimeout(r, 350));
         hideTyping();
 
-        const offlineReply = getOfflineReply(text);
+        const offlineReply = !hasBackendConfigured()
+          ? `⚠️ Backend URL abhi set nahi hai.
+
+Code me ye line dhoondo:
+const BACKEND_URL = "https://YOUR-REPL-URL.replit.app/chat";
+
+Aur apna actual Replit backend URL daalo.`
+          : getOfflineReply(text);
+
         botMsg(offlineReply);
         chatHistory.push({
           role:'bot',
@@ -1908,8 +2589,6 @@ Ye single HTML version app-jaisa UI deta hai.`);
         persistChat();
         return;
       }
-
-      const key = localStorage.getItem(AI_PROVIDERS[aiProvider].storageKey);
 
       isBusy = true;
       document.getElementById('chat-send-btn').disabled = true;
@@ -1917,44 +2596,43 @@ Ye single HTML version app-jaisa UI deta hai.`);
       showTyping();
 
       try {
-        let reply = '';
+        const response = await fetch(BACKEND_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            message: text,
+            history: chatHistory
+          })
+        });
 
-        if (aiProvider === 'gemini') reply = await callGemini(key, text, imgSnapshot);
-        else if (aiProvider === 'groq') reply = await callGroq(key, text);
-        else if (aiProvider === 'openrouter') reply = await callOpenRouter(key, text, imgSnapshot);
-        else if (aiProvider === 'openai') reply = await callOpenAI(key, text, imgSnapshot);
-        else if (aiProvider === 'cohere') reply = await callCohere(key, text);
-
+        const data = await response.json();
         hideTyping();
 
-        const finalReply = reply || 'Koi response nahi mila.';
+        if (!response.ok) {
+          throw new Error(data?.error || `HTTP ${response.status}`);
+        }
+
+        const finalReply = data?.reply || "No response";
         botMsg(finalReply);
         chatHistory.push({
           role:'bot',
-          text:finalReply,
-          imgSrc:null
+          text: finalReply,
+          imgSrc: null
         });
         persistChat();
       } catch (err) {
         hideTyping();
 
-        const em = err?.message || 'Unknown error';
-        let msg = `OpenRouter error: ${em}`;
-console.error("FULL ERROR =>", err);
-
-        if (/401|403|invalid|unauthorized/i.test(em)) {
-          msg = `Invalid API key lag rahi hai for ${AI_PROVIDERS[aiProvider].name}. Settings ⚙️ me jaake sahi key daalo.`;
-        } else if (/429|quota|rate/i.test(em)) {
-          msg = `Quota ya rate limit hit ho gayi. Dusra provider try karo ya thoda wait karo.`;
-        } else {
-          msg = `Online AI error aaya. Settings me key check karo ya offline mode use kar lo.`;
-        }
+        const em = err?.message || "Unknown error";
+        const msg = `Backend error: ${em}`;
 
         botMsg(msg);
         chatHistory.push({
           role:'bot',
-          text:msg,
-          imgSrc:null
+          text: msg,
+          imgSrc: null
         });
         persistChat();
       } finally {
@@ -1964,189 +2642,721 @@ console.error("FULL ERROR =>", err);
       }
     }
 
-    /* =========================
-       API CALLS
-    ========================= */
-    async function callOpenRouter(key, text, imgDataUrl) {
-  const content = [];
+    renderProvider();
+    renderSavedChat();
+    setPos(fabL, fabT, false);
+  </script>
+</body>
+</html>";
 
-  if (imgDataUrl) {
-    content.push({
-      type: 'image_url',
-      image_url: { url: imgDataUrl }
-    });
-  }
+    const OFFLINE_KB = [
+      {
+        patterns: ["install", "install app", "add to home screen", "homescreen", "phone pe install", "mobile install", "pwa", "install help"],
+        reply: `📲 App install kaise karein:
 
-  if (text) {
-    content.push({
-      type: 'text',
-      text
-    });
-  }
+Android Chrome:
+1. Website kholo
+2. 3-dot menu dabao
+3. "Add to Home screen" ya "Install app" choose karo
+4. Done ✅
 
-  const messages = [
-    { role: 'system', content: SYSTEM_PROMPT },
-    ...chatHistory.slice(-6).map(m => ({
-      role: m.role === 'user' ? 'user' : 'assistant',
-      content: m.text
-    })),
-    { role: 'user', content: imgDataUrl ? content : text }
-  ];
+iPhone Safari:
+1. Website kholo
+2. Share button dabao
+3. "Add to Home Screen" choose karo ✅
 
-  const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${key}`,
-      'X-Title': 'Batman AI Ultra Final'
-    },
-    body: JSON.stringify({
-      model: 'mistralai/mistral-7b-instruct:free',
-      messages: messages,
-      temperature: 0.7,
-      max_tokens: 500
-    })
-  });
+Laptop:
+Browser ke address bar ke paas install icon bhi aa sakta hai.`
+      },
+      {
+        patterns: ["bookmark", "save website", "save", "bookmark kaise", "website save", "star"],
+        reply: `🔖 Bookmark kaise karein:
 
-  const data = await response.json();
-  console.log("OpenRouter raw response =>", data);
+Laptop/Desktop:
+• Chrome / Edge / Firefox: Ctrl + D
+• Safari: Cmd + D
 
-  if (!response.ok) {
-    throw new Error(data?.error?.message || `HTTP ${response.status}`);
-  }
+Mobile Chrome:
+• 3-dot menu → Star icon`
+      },
+      {
+        patterns: ["offline", "without internet", "bina internet", "net ke bina", "offline mode"],
+        reply: `📡 Offline mode:
 
-  return data?.choices?.[0]?.message?.content || 'No response';
-    }
-      
-    async function callGemini(key, text, imgDataUrl) {
-      const parts = [];
-      if (imgDataUrl) {
-        parts.push({
-          inlineData: {
-            mimeType: imgDataUrl.split(';')[0].split(':')[1],
-            data: imgDataUrl.split(',')[1]
-          }
-        });
+Ye app offline me basic help replies de sakta hai.
+Online AI replies ke liye internet chahiye aur backend bhi live hona chahiye.
+
+Offline me:
+• app UI chalega
+• saved chat history dikhegi
+• install/help/features wale replies milenge`
+      },
+      {
+        patterns: ["backend", "backend setup", "replit", "server"],
+        reply: `⚙️ Backend setup:
+
+1. Replit pe Node.js app banao
+2. server.js aur package.json dalo
+3. GROQ_API_KEY secret add karo
+4. Run karo
+5. Frontend me BACKEND_URL me apna Replit URL dalo`
+      },
+      {
+        patterns: ["features", "feature", "help", "kya kya", "what can you do", "about"],
+        reply: `🌟 Batman AI Ultra Features:
+
+• Draggable floating AI button
+• Big mobile chat panel
+• Offline replies
+• Backend-based online AI
+• Separate settings modal
+• Image preview
+• Voice input
+• Export chat
+• Clear chat
+• Saved chat history`
+      },
+      {
+        patterns: ["api", "api key", "free api key", "key kaha se", "get api key"],
+        reply: `🔑 Ab frontend me direct API key use nahi ho rahi.
+
+API key backend me Replit Secrets me rakho.
+Recommended backend provider: Groq.`
+      },
+      {
+        patterns: ["hi", "hello", "hey", "namaste", "hii", "yo"],
+        reply: `Namaste bhai 👋
+Main Batman AI hoon.
+
+Agar backend sahi connected hai toh online jawab dunga.
+Nahi toh offline help replies dunga.`
+      },
+      {
+        patterns: ["voice", "voice input", "mic", "speak", "bolke"],
+        reply: `🎤 Voice input:
+
+Mic button dabao.
+Browser permission maange toh allow karo.
+Jo bologe woh input box me aa jayega.`
       }
-      if (text) parts.push({ text });
+    ];
 
-      const history = [
-        { role:'user', parts:[{ text:SYSTEM_PROMPT }] },
-        { role:'model', parts:[{ text:'Understood.' }] },
-        ...chatHistory.slice(-8).map(m => ({
-          role: m.role === 'user' ? 'user' : 'model',
-          parts: [{ text: m.text }]
-        })),
-        { role:'user', parts }
-      ];
+    const PROVIDER_DESCRIPTIONS = {
+      groq: 'Recommended. Backend pe Groq easiest aur fast hai.',
+      openrouter: 'Backend ke through use kar sakte ho.',
+      gemini: 'Backend logic alag lagana padega.',
+      openai: 'Paid backend provider.',
+      cohere: 'Backend text provider.'
+    };
 
-      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(key)}`, {
-        method:'POST',
-        headers:{ 'Content-Type':'application/json' },
-        body: JSON.stringify({
-          contents: history,
-          generationConfig: {
-            temperature: 0.8,
-            maxOutputTokens: 700
+    let aiProvider = localStorage.getItem('batman_provider_backend_ui') || 'groq';
+    let chatHistory = JSON.parse(localStorage.getItem('batman_chat_history') || '[]');
+    let isBusy = false;
+    let pendingImageB64 = null;
+    let pendingImageMime = null;
+    let settingsKeyVisible = false;
+
+    const fabWrap = document.getElementById('ai-fab-wrap');
+    const ringWrap = document.getElementById('ai-btn-ring-wrap');
+    const showTab = document.getElementById('ai-show-tab');
+    const BTN_W = 90, EDGE_ZONE = 35;
+
+    let fabL = window.innerWidth - 130;
+    let fabT = window.innerHeight - 120;
+    let pointerDownX, pointerDownY, fabDownL, fabDownT;
+    let dragging = false, moved = false;
+
+    function normalizeText(text) {
+      return String(text || "")
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s]/g, " ")
+        .replace(/\s+/g, " ");
+    }
+
+    function getOfflineReply(text) {
+      const t = normalizeText(text);
+
+      for (const item of OFFLINE_KB) {
+        for (const p of item.patterns) {
+          const pattern = normalizeText(p);
+          if (
+            t.includes(pattern) ||
+            pattern.includes(t) ||
+            t.split(" ").some(word => word && (pattern.includes(word) || word.includes(pattern)))
+          ) {
+            return item.reply;
           }
-        })
-      });
+        }
+      }
 
-      const d = await r.json();
-      if (!r.ok || d.error) throw new Error(d?.error?.message || 'Gemini request failed');
-      return d?.candidates?.[0]?.content?.parts?.[0]?.text || 'No response';
+      return `🤖 Offline mode me main basic help de sakta hoon.
+
+Try these:
+• backend setup
+• install app
+• offline mode
+• features`;
     }
 
-    async function callGroq(key, text) {
-      const messages = [
-        { role:'system', content:SYSTEM_PROMPT },
-        ...chatHistory.slice(-8).map(m => ({
-          role: m.role === 'user' ? 'user' : 'assistant',
-          content: m.text
-        })),
-        { role:'user', content:text }
-      ];
-
-      const r = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json',
-          'Authorization':'Bearer ' + key
-        },
-        body: JSON.stringify({
-          model:'llama-3.3-70b-versatile',
-          messages,
-          max_tokens:700,
-          temperature:0.8
-        })
-      });
-
-      const d = await r.json();
-      if (!r.ok || d.error) throw new Error(d?.error?.message || 'Groq request failed');
-      return d?.choices?.[0]?.message?.content || 'No response';
+    function clamp(v, lo, hi){
+      return Math.max(lo, Math.min(v, hi));
     }
 
-    async function callOpenAI(key, text, imgDataUrl) {
-      const content = [];
-      if (imgDataUrl) content.push({ type:'image_url', image_url:{ url: imgDataUrl } });
-      if (text) content.push({ type:'text', text });
+    function setPos(l, t, animate) {
+      const maxL = window.innerWidth - BTN_W + 30;
+      const maxT = window.innerHeight - BTN_W - 10;
+      fabL = clamp(l, -50, maxL);
+      fabT = clamp(t, 10, maxT);
 
-      const messages = [
-        { role:'system', content:SYSTEM_PROMPT },
-        ...chatHistory.slice(-8).map(m => ({
-          role: m.role === 'user' ? 'user' : 'assistant',
-          content: m.text
-        })),
-        { role:'user', content: imgDataUrl ? content : text }
-      ];
+      if (animate) fabWrap.classList.add('snap-anim');
+      else fabWrap.classList.remove('snap-anim');
 
-      const r = await fetch('https://api.openai.com/v1/chat/completions', {
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json',
-          'Authorization':'Bearer ' + key
-        },
-        body: JSON.stringify({
-          model:'gpt-4o',
-          messages,
-          max_tokens:700
-        })
-      });
-
-      const d = await r.json();
-      if (!r.ok || d.error) throw new Error(d?.error?.message || 'OpenAI request failed');
-      return d?.choices?.[0]?.message?.content || 'No response';
+      fabWrap.style.left = fabL + 'px';
+      fabWrap.style.top = fabT + 'px';
+      fabWrap.style.right = 'auto';
+      fabWrap.style.bottom = 'auto';
     }
 
-    async function callCohere(key, text) {
-      const chatH = chatHistory.slice(-8).map(m => ({
-        role: m.role === 'user' ? 'USER' : 'CHATBOT',
-        message: m.text
-      }));
-
-      const r = await fetch('https://api.cohere.ai/v1/chat', {
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json',
-          'Authorization':'Bearer ' + key
-        },
-        body: JSON.stringify({
-          model:'command-r-plus',
-          message:text,
-          chat_history:chatH,
-          preamble:SYSTEM_PROMPT,
-          max_tokens:700
-        })
-      });
-
-      const d = await r.json();
-      if (!r.ok || d.message) throw new Error(d?.message || 'Cohere request failed');
-      return d?.text || 'No response';
+    function getPoint(e){
+      return e.touches ? e.touches[0] : e;
     }
 
-    /* =========================
-       INIT
-    ========================= */
+    function onFabDown(e) {
+      if (e.button && e.button !== 0) return;
+
+      const pt = getPoint(e);
+      pointerDownX = pt.clientX;
+      pointerDownY = pt.clientY;
+      fabDownL = fabL;
+      fabDownT = fabT;
+      dragging = false;
+      moved = false;
+      fabWrap.classList.remove('snap-anim');
+
+      document.addEventListener('mousemove', onFabMove, { passive:false });
+      document.addEventListener('mouseup', onFabUp);
+      document.addEventListener('touchmove', onFabMove, { passive:false });
+      document.addEventListener('touchend', onFabUp);
+      document.addEventListener('touchcancel', onFabUp);
+
+      e.preventDefault();
+    }
+
+    function onFabMove(e) {
+      const pt = getPoint(e);
+      const dx = pt.clientX - pointerDownX;
+      const dy = pt.clientY - pointerDownY;
+
+      if (!dragging && (Math.abs(dx) > 5 || Math.abs(dy) > 5)) {
+        dragging = true;
+        moved = true;
+        ringWrap.classList.add('dragging');
+      }
+
+      if (!dragging) return;
+      if (e.cancelable) e.preventDefault();
+
+      setPos(fabDownL + dx, fabDownT + dy, false);
+    }
+
+    function onFabUp() {
+      document.removeEventListener('mousemove', onFabMove);
+      document.removeEventListener('mouseup', onFabUp);
+      document.removeEventListener('touchmove', onFabMove);
+      document.removeEventListener('touchend', onFabUp);
+      document.removeEventListener('touchcancel', onFabUp);
+      ringWrap.classList.remove('dragging');
+
+      if (!moved) {
+        aiToggle();
+        return;
+      }
+
+      dragging = false;
+
+      const goLeft = fabL < EDGE_ZONE - BTN_W / 2;
+      const goRight = fabL > window.innerWidth - BTN_W / 2 - EDGE_ZONE;
+
+      if (goLeft) {
+        setPos(-BTN_W + 8, fabT, true);
+        setTimeout(() => {
+          fabWrap.classList.add('offscreen');
+          showTab.style.display = 'block';
+          showTab.style.top = clamp(fabT + 20, 10, window.innerHeight - 70) + 'px';
+          showTab.style.left = '0';
+          showTab.style.right = 'auto';
+          showTab.classList.remove('r');
+          showTab.textContent = '🦇 AI';
+        }, 380);
+      } else if (goRight) {
+        setPos(window.innerWidth - 8, fabT, true);
+        setTimeout(() => {
+          fabWrap.classList.add('offscreen');
+          showTab.style.display = 'block';
+          showTab.style.top = clamp(fabT + 20, 10, window.innerHeight - 70) + 'px';
+          showTab.style.right = '0';
+          showTab.style.left = 'auto';
+          showTab.classList.add('r');
+          showTab.textContent = '🦇 AI';
+        }, 380);
+      } else {
+        setPos(fabL, fabT, true);
+      }
+    }
+
+    function aiShowBtn() {
+      showTab.style.display = 'none';
+      fabWrap.classList.remove('offscreen');
+      const fromRight = showTab.classList.contains('r');
+      setPos(fromRight ? window.innerWidth - 110 : 10, fabT, true);
+    }
+
+    ringWrap.addEventListener('mousedown', onFabDown, { passive:false });
+    ringWrap.addEventListener('touchstart', onFabDown, { passive:false });
+
+    window.addEventListener('resize', () => {
+      setPos(fabL, fabT, false);
+    });
+
+    function spawnSparkles() {
+      const colors = ['#ffd84c','#fff','#8ab4ff','#9a7dff','#67e8f9'];
+      const btn = document.getElementById('ai-chat-btn');
+      const r = btn.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+
+      for (let i = 0; i < 12; i++) {
+        const s = document.createElement('div');
+        const ang = (i / 12) * Math.PI * 2;
+        const dist = 30 + Math.random() * 26;
+        const sx = Math.cos(ang) * dist;
+        const sy = Math.sin(ang) * dist - 10;
+
+        s.style.cssText = `
+          position:fixed;
+          width:${3 + Math.random()*4}px;
+          height:${3 + Math.random()*4}px;
+          border-radius:50%;
+          background:${colors[i % colors.length]};
+          pointer-events:none;
+          z-index:100000;
+          left:${cx}px;
+          top:${cy}px;
+          --sx:${sx}px;
+          --sy:${sy}px;
+          animation:sparkleFloat .8s ease-out ${i*.03}s forwards;
+        `;
+
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 1000);
+      }
+    }
+
+    function aiToggle() {
+      const p = document.getElementById('ai-panel');
+      p.classList.toggle('open');
+
+      if (p.classList.contains('open')) {
+        spawnSparkles();
+        renderProvider();
+        document.getElementById('ai-notif').style.display = 'none';
+
+        if (!chatHistory.length && !document.getElementById('chat-msgs').children.length) {
+          botMsg(`Namaste! 👋 Main hoon Batman AI.
+
+Ab ye app backend ke through AI se baat karta hai.
+
+Kaam karne ke liye:
+1. Replit backend run hona chahiye
+2. BACKEND_URL sahi hona chahiye
+3. Backend me API key secret set honi chahiye`);
+        }
+      }
+    }
+
+    function aiExpand() {
+      document.getElementById('ai-panel').classList.toggle('expanded');
+    }
+
+    function renderProvider() {
+      document.getElementById('provider-badge-btn').textContent = '⚙️ ' + aiProvider.toUpperCase() + ' Backend';
+      const imgBtn = document.getElementById('img-upload-btn');
+      imgBtn.style.opacity = '.4';
+      imgBtn.title = 'Backend version me image abhi disabled hai';
+    }
+
+    function getTime() {
+      return new Date().toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    function formatText(text) {
+      return String(text || '')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+        .replace(/\n/g, '<br>');
+    }
+
+    function botMsg(text, imgSrc) {
+      const c = document.getElementById('chat-msgs');
+      const d = document.createElement('div');
+      d.className = 'cm bot';
+
+      d.innerHTML = `
+        <div class="bot-av">
+          <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?q=80&w=400&auto=format&fit=crop" alt="AI" />
+        </div>
+        <div class="msg-wrap">
+          <div class="cm-bub">${imgSrc ? `<img class="cm-img" src="${imgSrc}" alt="img" />` : ''}${formatText(text)}</div>
+          <div class="cm-time">${getTime()}</div>
+        </div>
+      `;
+
+      c.appendChild(d);
+      c.scrollTop = c.scrollHeight;
+    }
+
+    function userMsg(text, imgSrc) {
+      const c = document.getElementById('chat-msgs');
+      const d = document.createElement('div');
+      d.className = 'cm user';
+
+      d.innerHTML = `
+        <div class="msg-wrap">
+          <div class="cm-bub">${imgSrc ? `<img class="cm-img" src="${imgSrc}" alt="img" />` : ''}${text ? formatText(text) : ''}</div>
+          <div class="cm-time">${getTime()}</div>
+        </div>
+      `;
+
+      c.appendChild(d);
+      c.scrollTop = c.scrollHeight;
+    }
+
+    function showTyping() {
+      const c = document.getElementById('chat-msgs');
+      const d = document.createElement('div');
+      d.className = 'cm bot';
+      d.id = 'ai-typing';
+
+      d.innerHTML = `
+        <div class="bot-av">
+          <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?q=80&w=400&auto=format&fit=crop" alt="AI" />
+        </div>
+        <div class="msg-wrap">
+          <div class="cm-bub typing-bub"><span></span><span></span><span></span></div>
+        </div>
+      `;
+
+      c.appendChild(d);
+      c.scrollTop = c.scrollHeight;
+    }
+
+    function hideTyping() {
+      const t = document.getElementById('ai-typing');
+      if (t) t.remove();
+    }
+
+    function persistChat() {
+      localStorage.setItem('batman_chat_history', JSON.stringify(chatHistory.slice(-40)));
+    }
+
+    function renderSavedChat() {
+      if (!chatHistory.length) return;
+      for (const item of chatHistory) {
+        if (item.role === 'user') userMsg(item.text || '', item.imgSrc || null);
+        else botMsg(item.text || '', item.imgSrc || null);
+      }
+    }
+
+    function clearChat() {
+      if (!confirm('Clear full chat?')) return;
+      chatHistory = [];
+      persistChat();
+      document.getElementById('chat-msgs').innerHTML = '';
+      document.getElementById('chips-row').style.display = 'flex';
+      botMsg('Chat cleared. Naya start karte hain 👌');
+    }
+
+    function exportChat() {
+      if (!chatHistory.length) {
+        alert('Chat empty hai.');
+        return;
+      }
+
+      const lines = chatHistory.map(m => `[${m.role.toUpperCase()}] ${m.text || '[image]'}`);
+      const blob = new Blob([lines.join('\n\n')], { type:'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'batman-ai-chat.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function quickAsk(el) {
+      const inp = document.getElementById('chat-input-txt');
+      inp.value = el.textContent.replace(/^[^\w\s]+\s*/,'').trim();
+      aiResize(inp);
+      aiSend();
+    }
+
+    function aiResize(el) {
+      el.style.height = 'auto';
+      el.style.height = Math.min(el.scrollHeight, 130) + 'px';
+    }
+
+    function showHelpMessage() {
+      botMsg(`Quick help:
+
+• Settings ke liye ⚙️
+• Voice ke liye 🎤
+• Export ke liye "Export chat"
+• Clear ke liye 🗑️
+
+Important:
+Ye app ab backend ke through online AI use karta hai.
+Frontend me API key save nahi hoti.`);
+    }
+
+    function toggleInstallGuide() {
+      botMsg(`📲 Install guide:
+
+Android Chrome:
+1. Site kholo
+2. 3 dots dabao
+3. "Add to Home screen" ya "Install app"
+
+iPhone Safari:
+1. Share button dabao
+2. "Add to Home Screen"
+
+Note:
+Installable PWA ke liye manifest + service worker files chahiye.`);
+    }
+
+    function openSettingsModal() {
+      document.getElementById('ai-settings-modal').classList.add('show');
+      document.getElementById('settings-provider-select').value = aiProvider;
+      refreshSettingsModal();
+    }
+
+    function closeSettingsModal() {
+      document.getElementById('ai-settings-modal').classList.remove('show');
+    }
+
+    function settingsProviderChanged() {
+      aiProvider = document.getElementById('settings-provider-select').value;
+      localStorage.setItem('batman_provider_backend_ui', aiProvider);
+      renderProvider();
+      refreshSettingsModal();
+    }
+
+    function refreshSettingsModal() {
+      const p = document.getElementById('settings-provider-select').value;
+      const desc = document.getElementById('settings-provider-desc');
+      const note = document.getElementById('settings-saved-note');
+      const input = document.getElementById('settings-api-key');
+
+      input.value = "";
+      input.placeholder = "Backend mode: key Replit Secrets me rakho";
+      desc.innerHTML = `Selected provider UI: ${p.toUpperCase()}<br><br>${PROVIDER_DESCRIPTIONS[p] || ''}<br><br>Actual API key backend me Replit Secrets me rakho.`;
+      note.style.display = 'block';
+      note.textContent = 'Frontend key disabled in backend mode.';
+    }
+
+    function saveKeyFromSettings() {
+      botMsg("Ab API key frontend me save nahi hogi. Key backend me Replit Secrets me rakho.");
+    }
+
+    function removeKeyFromSettings() {
+      botMsg("Frontend key remove karne ki zarurat nahi. Backend key Replit Secrets me hoti hai.");
+    }
+
+    function toggleSettingsKeyView() {
+      const input = document.getElementById('settings-api-key');
+      settingsKeyVisible = !settingsKeyVisible;
+      input.type = settingsKeyVisible ? 'text' : 'password';
+    }
+
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('ai-settings-modal');
+      if (e.target === modal) closeSettingsModal();
+    });
+
+    document.getElementById('file-input-hidden').addEventListener('change', handleImageSelect);
+
+    function handleImageSelect(e) {
+      alert('Backend version me image input abhi disabled hai. Pehle text backend kaam kara lo.');
+      e.target.value = '';
+    }
+
+    function removeImage() {
+      pendingImageB64 = null;
+      pendingImageMime = null;
+      document.getElementById('img-preview-wrap').classList.remove('show');
+      document.getElementById('img-preview').src = '';
+    }
+
+    function startVoiceInput() {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if (!SR) {
+        alert('Voice input is browser me supported nahi hai.');
+        return;
+      }
+
+      const rec = new SR();
+      rec.lang = 'en-IN';
+      rec.interimResults = false;
+      rec.maxAlternatives = 1;
+
+      rec.onstart = () => {
+        document.getElementById('ai-status-txt').textContent = '● Listening...';
+      };
+
+      rec.onresult = (event) => {
+        const text = event.results[0][0].transcript;
+        const inp = document.getElementById('chat-input-txt');
+        inp.value = text;
+        aiResize(inp);
+        document.getElementById('ai-status-txt').textContent = '● Voice captured';
+      };
+
+      rec.onerror = () => {
+        document.getElementById('ai-status-txt').textContent = '● Voice error';
+      };
+
+      rec.onend = () => {
+        setTimeout(() => {
+          document.getElementById('ai-status-txt').textContent = '● Online — Ask anything!';
+        }, 1200);
+      };
+
+      rec.start();
+    }
+
+    document.getElementById('chat-input-txt').addEventListener('keydown', function(e){
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        aiSend();
+      }
+    });
+
+    function hasBackendConfigured() {
+      return BACKEND_URL && !BACKEND_URL.includes("YOUR-REPL-URL");
+    }
+
+    async function aiSend() {
+      const inp = document.getElementById('chat-input-txt');
+      const text = inp.value.trim();
+
+      if (!text || isBusy) return;
+
+      inp.value = '';
+      aiResize(inp);
+
+      userMsg(text, null);
+      chatHistory.push({
+        role:'user',
+        text:text,
+        imgSrc:null
+      });
+      persistChat();
+
+      document.getElementById('chips-row').style.display = 'none';
+
+      const lower = text.toLowerCase();
+      const simpleHelp = (
+        lower.includes('install') ||
+        lower.includes('bookmark') ||
+        lower.includes('offline') ||
+        lower.includes('feature') ||
+        lower.includes('api') ||
+        lower.includes('help') ||
+        lower.includes('backend') ||
+        lower.includes('replit')
+      );
+
+      if (!navigator.onLine || !hasBackendConfigured() || simpleHelp) {
+        showTyping();
+        await new Promise(r => setTimeout(r, 350));
+        hideTyping();
+
+        const offlineReply = !hasBackendConfigured()
+          ? `⚠️ Backend URL abhi set nahi hai.
+
+Code me ye line dhoondo:
+const BACKEND_URL = "https://YOUR-REPL-URL.replit.app/chat";
+
+Aur apna actual Replit backend URL daalo.`
+          : getOfflineReply(text);
+
+        botMsg(offlineReply);
+        chatHistory.push({
+          role:'bot',
+          text:offlineReply,
+          imgSrc:null
+        });
+        persistChat();
+        return;
+      }
+
+      isBusy = true;
+      document.getElementById('chat-send-btn').disabled = true;
+      document.getElementById('ai-status-txt').textContent = '● Thinking...';
+      showTyping();
+
+      try {
+        const response = await fetch(BACKEND_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            message: text,
+            history: chatHistory
+          })
+        });
+
+        const data = await response.json();
+        hideTyping();
+
+        if (!response.ok) {
+          throw new Error(data?.error || `HTTP ${response.status}`);
+        }
+
+        const finalReply = data?.reply || "No response";
+        botMsg(finalReply);
+        chatHistory.push({
+          role:'bot',
+          text: finalReply,
+          imgSrc: null
+        });
+        persistChat();
+      } catch (err) {
+        hideTyping();
+
+        const em = err?.message || "Unknown error";
+        const msg = `Backend error: ${em}`;
+
+        botMsg(msg);
+        chatHistory.push({
+          role:'bot',
+          text: msg,
+          imgSrc: null
+        });
+        persistChat();
+      } finally {
+        isBusy = false;
+        document.getElementById('chat-send-btn').disabled = false;
+        document.getElementById('ai-status-txt').textContent = '● Online — Ask anything!';
+      }
+    }
+
     renderProvider();
     renderSavedChat();
     setPos(fabL, fabT, false);
