@@ -5,7 +5,7 @@
   "display": "standalone",
   "background_color": "#07142d",
   "theme_color": "#07142d",
-  "description": "Batman AI Ultra Final PWA with multi-provider support, offline help, voice input and image preview.",
+  "description": "Revenger AI PWA with multi-provider support, offline help, voice input and image preview.",
   "icons": [
     {
       "src": "icon-192.png",
